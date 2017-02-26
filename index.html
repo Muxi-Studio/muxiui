@@ -5,11 +5,30 @@
 	<title>MUI-A UI framework for developing desktop web applications</title>
 </head>
 <body>
-	<h1>Components</h1>
-	<p>button</p>
-	<script src="/lib/vue.min.js"></script>
-  <script>
-  	
-  </script>
+	<h1>MUI Components</h1>
+	<div class="app">
+		<h3>Button</h1>
+		<p><m-button>确认</mbutton></p>
+	  <p><m-button type="error">错误</mbutton></p>
+	  <p><m-button type="warning">警告</mbutton></p>
+	</div>
+	<script src="/lib/vue.js"></script>
+
+	<script src="http://localhost:9000/dist/main.js"></script>
+	<script src="http://localhost:9000/dist/style.js"></script>
+
+
+  <script src="/dist/main.js"></script>
+	<script src="/dist/style.js"></script>
+
+	<script>
+		//initialzie
+		const app = new Vue({
+			el:".app",
+			data: {
+				foo:1
+			}
+		})
+	</script>
 </body>
 </html>
