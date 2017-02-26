@@ -168,6 +168,10 @@ exports.default = {
         type: {
             type: String,
             default: "primary"
+        },
+        onClick: {
+            type: Function,
+            default: function _default() {}
         }
     }
 };
@@ -182,7 +186,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ".m-button {\n  display: inline-block;\n  line-height: 40px;\n  border-radius: 3px;\n  color: #fff;\n  padding-left: 26px;\n  padding-right: 26px;\n  font-size: 16px;\n  position: relative;\n  z-index: 1;\n  overflow: hidden; }\n  .m-button::before {\n    content: \"\";\n    width: 100%;\n    display: block;\n    height: 38px;\n    position: absolute;\n    left: 0;\n    top: 0;\n    z-index: -1;\n    transtion: all 1s;\n    border-radius: 3px;\n    -webkit-transform: translateY(-2px);\n            transform: translateY(-2px); }\n  .m-button--primary {\n    background-color: #16958a; }\n  .m-button--primary::before {\n    background-color: #1bbc9b; }\n  .m-button--primary:hover::before {\n    -webkit-transform: translateY(0px);\n            transform: translateY(0px); }\n  .m-button--warning {\n    background-color: #ef4836; }\n  .m-button--error {\n    background-color: #f4d03f; }\n  .m-button--ghost {\n    background-color: #f4d03f; }\n", ""]);
+exports.push([module.i, ".m-button {\n  display: inline-block;\n  line-height: 40px;\n  border-radius: 3px;\n  color: #fff;\n  padding-left: 26px;\n  padding-right: 26px;\n  font-size: 16px;\n  position: relative;\n  z-index: 1;\n  overflow: hidden; }\n  .m-button::before {\n    content: \"\";\n    width: 100%;\n    display: block;\n    height: 38px;\n    position: absolute;\n    left: 0;\n    top: 0;\n    z-index: -1;\n    transtion: all 1s;\n    border-radius: 3px;\n    -webkit-transform: translateY(-2px);\n            transform: translateY(-2px); }\n  .m-button--primary {\n    background-color: #16958a; }\n  .m-button--primary::before {\n    background-color: #1bbc9b; }\n  .m-button--warning {\n    background-color: #f4d03f; }\n  .m-button--error {\n    background-color: #bf3223; }\n  .m-button--error::before {\n    background-color: #ef4836; }\n  .m-button--ghost {\n    background-color: #ef4836; }\n  .m-button--primary:hover::before, .m-button--error:hover::before, .m-button--warning:hover::before {\n    -webkit-transform: translateY(0px);\n            transform: translateY(0px); }\n", ""]);
 
 // exports
 
@@ -192,7 +196,7 @@ exports.push([module.i, ".m-button {\n  display: inline-block;\n  line-height: 4
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = "\n<button :class=\"'m-button ' + 'm-button--' + this.type\">\n    <slot></slot>\n</button>\n";
+module.exports = "\n<button :class=\"'m-button ' + 'm-button--' + this.type\" @click=\"this.onClick\">\n    <slot></slot>\n</button>\n";
 
 /***/ }),
 /* 8 */

@@ -1,34 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>MUI-A UI framework for developing desktop web applications</title>
+    <meta charset="UTF-8">
+    <title>MUI-A UI framework for developing desktop web applications</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
 </head>
+
 <body>
-	<h1>MUI Components</h1>
-	<div class="app">
-		<h3>Button</h1>
-		<p><m-button>确认</mbutton></p>
-	  <p><m-button type="error">错误</mbutton></p>
-	  <p><m-button type="warning">警告</mbutton></p>
-	</div>
-	<script src="./lib/vue.js"></script>
+    <h1>MUI Components</h1>
+    <div class="app"></div>
+    <script type="text/x-template" id="demo">
+        <div>
+            <m-button :on-click="switchType.bind(this, 'button')">Button</m-button>
+            <m-button :on-click="switchType.bind(this, 'toast')">Toast</m-button>
+            <button-demo v-if="type === 'button'"></button-demo>
+            <toast-demo v-else-if="type === 'toast'"></toast-demo>
+            <div v-else>
+                Not A/B/C
+            </div>
+        </div>
+    </script>
+    <script type="text/x-template" id="buttonDemo">
+        <div>
+            <h3>Button</h3>
+            <p>
+                <m-button :on-click="onclick">确认</m-button>
+            </p>
+            <p>
+                <m-button type="error">错误</m-button>
+            </p>
+            <p>
+                <m-button type="warning">警告</m-button>
+            </p>
+            <p>Code:</p>
+            <p>
+            	<pre>
+            		<code class="html" v-html="html"></code>
+            	</pre>
+            </p>
+        </div>
+    </script>
+    <script type="text/x-template" id="toastDemo">
+        <p>toast</p>
+    </script>
+    <script src="./lib/vue.js"></script>
+    
+    <!-- use this during local development -->
+    <script src="http://localhost:9000/dist/main.js"></script>
+    <script src="http://localhost:9000/dist/style.js"></script>
+    <!-- do not use this during local development, this is used for gh-pages
+  
+	 -->
+	 <script src="./dist/main.js"></script>
+	 <script src="./dist/style.js"></script>
+    <script>
+    // Register a global custom directive called v-focus
+    Vue.directive('highlight', {
+        // When the bound element is inserted into the DOM...
+        inserted: function(el) {
+            // Focus the element
+            hljs.highlightBlock(el);
+        }
+    })
 
-	<script src="http://localhost:9000/dist/main.js"></script>
-	<script src="http://localhost:9000/dist/style.js"></script>
+    function escapeHtml(unsafe) {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+    //initialzie
+    const buttonDemo = Vue.extend({
+        template: "#buttonDemo",
+        data: function() {
+            const html =
+                `
+<h3>Button</h3><p>
+<m-button :on-click="onclick">确认</m-button></p>
+<p><m-button type="error">错误</m-button></p>
+<p><m-button type="warning">警告</m-button></p>
+					`
+            return {
+                foo: 1,
+                html: escapeHtml(html),
+            }
+        },
+        methods: {
+            onclick: function() {
+                console.log("clicked")
+            }
+        }
+    })
 
+    const toastDemo = Vue.extend({
+        template: "#toastDemo",
+        data: function() {
+            return {
+                foo: 1
+            }
+        },
+        methods: {
+            onclick: function() {
+                console.log("clicked")
+            }
+        }
+    })
 
-  <script src="./dist/main.js"></script>
-	<script src="./dist/style.js"></script>
-
-	<script>
-		//initialzie
-		const app = new Vue({
-			el:".app",
-			data: {
-				foo:1
-			}
-		})
-	</script>
+    const demo = new Vue({
+        el: ".app",
+        template: "#demo",
+        data: function() {
+            return {
+                type: "button"
+            }
+        },
+        methods: {
+            switchType: function(type) {
+                this.type = type
+            }
+        },
+        components: {
+            "button-demo": buttonDemo,
+            "toast-demo": toastDemo,
+        }
+    })
+    </script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
 </body>
+
 </html>
