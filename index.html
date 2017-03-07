@@ -14,8 +14,10 @@
         <div>
             <m-button :on-click="switchType.bind(this, 'button')">Button</m-button>
             <m-button :on-click="switchType.bind(this, 'toast')">Toast</m-button>
+            <m-button :on-click="switchType.bind(this, 'form')">Form</m-button>
             <button-demo v-if="type === 'button'"></button-demo>
             <toast-demo v-else-if="type === 'toast'"></toast-demo>
+            <form-demo v-else-if="type === 'form'"></form-demo>
             <div v-else>
                 Not A/B/C
             </div>
@@ -44,6 +46,34 @@
     <script type="text/x-template" id="toastDemo">
         <p>toast</p>
     </script>
+    <script type="text/x-template" id="formDemo">
+        <div>
+            <h3>Input</h3>
+            <div style="display:inline-block;vertical-align:top">
+                <m-input placeholder="请输入姓名" label="姓名" v-on:onBlur="onBlur" v-model="text_name" :message="message_name"></m-input>
+            </div>
+            <div style="display:inline-block;vertical-align:top">
+                <m-input placeholder="请输入学号" label="学号" v-model="text_num"></m-input>
+            </div>
+            <p></p>
+            <m-input placeholder="请输入课程" v-model="text_course"></m-input>
+            <p>Code:</p>
+            <p>
+                <pre>
+                    <code class="html" v-html="text_html"></code>
+                </pre>
+            </p>
+            <h3>TextArea</h3>
+            <m-textarea placeholder="请输入一段关于..." v-model="textarea_one"></m-textarea>
+            <m-textarea v-model="textarea_two" :message="textmessage"></m-textarea>
+            <p>Code:</p>
+            <p>
+                <pre>
+                    <code class="html" v-html="textarea_html"></code>
+                </pre>
+            </p>
+        </div>
+    </script>
     <script src="./lib/vue.js"></script>
     
     <!-- use this during local development -->
@@ -52,8 +82,8 @@
     <!-- do not use this during local development, this is used for gh-pages
   
 	 -->
-	 <script src="./dist/main.js"></script>
-	 <script src="./dist/style.js"></script>
+<!-- 	 <script src="./dist/main.js"></script>
+	 <script src="./dist/style.js"></script> -->
     <script>
     // Register a global custom directive called v-focus
     Vue.directive('highlight', {
@@ -99,12 +129,53 @@
         template: "#toastDemo",
         data: function() {
             return {
-                foo: 1
+                foo: 1,
             }
         },
         methods: {
             onclick: function() {
                 console.log("clicked")
+            }
+        }
+    })
+
+    const formDemo = Vue.extend({
+        template: "#formDemo",
+        data: function() {
+            const text_html =
+                `
+<h3>Input</h3>
+<div style="display:inline-block;vertical-align:top">
+    <m-input placeholder="请输入姓名" label="姓名" v-on:onBlur="onBlur" v-model="text_name" :message="message_name"></m-input>
+</div>
+<div style="display:inline-block;vertical-align:top">
+    <m-input placeholder="请输入学号" label="学号" v-model="text_num"></m-input>
+</div>
+<p></p>
+<m-input placeholder="请输入课程" v-model="text_course"></m-input>
+                    `
+            const textarea_html =
+                `
+<h3>TextArea</h3>
+<m-textarea placeholder="请输入一段关于..." v-model="textarea_one"></m-textarea>
+<m-textarea v-model="textarea_two" :message="textmessage"></m-textarea>
+                    `
+            return {
+                foo: 1,
+                text_name:"hah",
+                message_name:"message!",
+                text_num:"1234",
+                text_course:"",
+                textarea_one:"textarea_one",
+                textarea_two:"",
+                textmessage:"message for textarea",
+                text_html: escapeHtml(text_html),
+                textarea_html: escapeHtml(textarea_html),
+            }
+        },
+        methods: {
+            onBlur: function() {
+                console.log(this.textarea_one)
             }
         }
     })
@@ -125,6 +196,7 @@
         components: {
             "button-demo": buttonDemo,
             "toast-demo": toastDemo,
+            "form-demo": formDemo
         }
     })
     </script>
