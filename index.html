@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>MUI-A UI framework for developing desktop web applications</title>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <link rel="stylesheet" href="../lib/default.min.css">
 </head>
 
 <body>
@@ -56,10 +56,11 @@
         <div>
             <h3>Input</h3>
             <div style="display:inline-block;vertical-align:top">
-                <m-input placeholder="请输入姓名" label="姓名" v-on:onBlur="onBlur" v-model="text_name" :message="message_name"></m-input>
+                <m-input placeholder="请输入姓名" label="姓名" v-on:onBlur="onBlur(1)" v-model="text_name" :message="message_name"></m-input>
             </div>
+            <div>{{ text_name }}</div>
             <div style="display:inline-block;vertical-align:top">
-                <m-input placeholder="请输入学号" label="学号" v-model="text_num" v-on:onBlur="onBlur"></m-input>
+                <m-input placeholder="请输入学号" label="学号" v-model="text_num" v-on:onBlur="onBlur(2)"></m-input>
             </div>
             <p></p>
             <m-input placeholder="请输入课程" v-model="text_course"></m-input>
@@ -175,7 +176,7 @@
             }
         },
         methods: {
-            onclick: function() {
+            onclick: function(num) {
                 console.log("clicked")
             }
         }
@@ -216,8 +217,8 @@
             }
         },
         methods: {
-            onBlur: function() {
-                console.log(this.text_num)
+            onBlur: function(num) {
+                console.log(num)
             }
         }
     })
@@ -288,7 +289,7 @@
         }
     })
     </script>
-     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+     <script src="../lib/highlight.min.js"></script>
 </body>
 
 </html>
