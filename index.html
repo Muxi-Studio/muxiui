@@ -16,10 +16,14 @@
             <m-button :on-click="switchType.bind(this, 'toast')">Toast</m-button>
             <m-button :on-click="switchType.bind(this, 'form')">Form</m-button>
             <m-button :on-click="switchType.bind(this, 'radio')">Radio</m-button>
+            <m-button :on-click="switchType.bind(this, 'checkbox')">Checkbox</m-button>
+            <m-button :on-click="switchType.bind(this, 'datepicker')">DatePicker</m-button>
             <button-demo v-if="type === 'button'"></button-demo>
             <toast-demo v-else-if="type === 'toast'"></toast-demo>
             <form-demo v-else-if="type === 'form'"></form-demo>
             <radio-demo v-else-if="type === 'radio'"></radio-demo>
+            <checkbox-demo v-else-if="type === 'checkbox'"></checkbox-demo>
+            <datepicker-demo v-else-if="type === 'datepicker'"></datepicker-demo>
             <div v-else>
                 Not A/B/C
             </div>
@@ -83,10 +87,10 @@
     <script type="text/x-template" id="radioDemo">
         <div>
             <h3>Radio</h3>
-            <m-radio v-model="radio" label="1">1</m-radio>
-            <m-radio v-model="radio" label="2">2</m-radio>
+            <m-radio v-model="radio" label="1"></m-radio>
+            <m-radio v-model="radio" label="2"></m-radio>
             <p>
-                <m-radio v-model="radio" label="3">3</m-radio>
+                <m-radio v-model="radio" label="3"></m-radio>
             </p>
             <p>Code:</p>
             <p>
@@ -94,6 +98,27 @@
                     <code class="html" v-html="html"></code>
                 </pre>
             </p>
+        </div>
+    </script>
+    <script type="text/x-template" id="checkboxDemo">
+        <div>
+            <h3>Checkbox</h3>
+            <m-checkbox-group v-model="checkbox">
+                <m-checkbox label="1"></m-checkbox>
+                <m-checkbox label="2"></m-checkbox>
+                <m-checkbox label="3"></m-checkbox>
+            </m-checkbox-group>
+            <p>Code:</p>
+            <p>
+                <pre>
+                    <code class="html" v-html="html"></code>
+                </pre>
+            </p>
+        </div>
+    </script>
+    <script type="text/x-template" id="datePickerDemo">
+        <div>
+            <m-datepicker></m-datepicker>
         </div>
     </script>
     <script src="./lib/vue.js"></script>
@@ -217,7 +242,7 @@
 </p>
                     `
             return {
-                radio:'',
+                radio:'2',
                 html: escapeHtml(html),
             }
         },
@@ -228,6 +253,40 @@
         }
     })
 
+    const checkboxDemo = Vue.extend({
+        template: "#checkboxDemo",
+        data: function() {
+            const html =
+                `
+<h3>Button</h3>
+<m-button :on-click="onclick">确认</m-button></p>
+<p><m-button type="error">错误</m-button></p>
+<p><m-button type="warning">警告</m-button></p>
+                    `
+            return {
+                checkbox: [],
+                html: escapeHtml(html),
+            }
+        },
+        methods: {
+            onclick: function() {
+                console.log("clicked")
+            }
+        }
+    })
+    const datepickerDemo = Vue.extend({
+        template: "#datePickerDemo",
+        data: function() {
+            const html =
+                `
+<h3>DatePicker</h3><p>
+<m-datepicker></m-datepicker>
+                    `    
+            return {
+
+            }        
+        }
+    })
     const demo = new Vue({
         el: ".app",
         template: "#demo",
@@ -245,7 +304,9 @@
             "button-demo": buttonDemo,
             "toast-demo": toastDemo,
             "form-demo": formDemo,
-            "radio-demo": radioDemo
+            "radio-demo": radioDemo,
+            "checkbox-demo": checkboxDemo,
+            "datepicker-demo": datepickerDemo
         }
     })
     </script>
