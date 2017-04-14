@@ -46,7 +46,10 @@
         </div>
     </script>
     <script type="text/x-template" id="toastDemo">
-        <p>toast</p>
+        <div>
+            <m-button :on-click="toggleToast">显示toast</m-button>
+            <m-toast v-show="show" @close="toggleToast">哈哈哈哈</m-toast>
+        </div>
     </script>
     <script type="text/x-template" id="formDemo">
         <div>
@@ -148,12 +151,15 @@
         template: "#toastDemo",
         data: function() {
             return {
-                foo: 1,
+                show: false
             }
         },
         methods: {
             onclick: function(num) {
                 console.log("clicked")
+            },
+            toggleToast: function() {
+                this.show = !this.show
             }
         }
     })
