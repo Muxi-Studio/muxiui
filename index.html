@@ -59,11 +59,11 @@
         <div>
             <h3>Input</h3>
             <div style="display:inline-block;vertical-align:top">
-                <m-input placeholder="请输入姓名" label="姓名" v-on:onBlur="onBlur(1)" v-model="text_name" :message="message_name"></m-input>
+                <m-input  label="姓名" v-on:onblur="onBlur(1)" v-model="text_name" :message="message_name"></m-input>
             </div>
             <div>{{ text_name }}</div>
             <div style="display:inline-block;vertical-align:top">
-                <m-input placeholder="请输入学号" label="学号" v-model="text_num" v-on:onBlur="onBlur(2)"></m-input>
+                <m-input placeholder="请输入学号" label="学号" v-model="text_num" v-on:onblur="onBlur(2)"></m-input>
             </div>
             <p></p>
             <m-input placeholder="请输入课程" v-model="text_course"></m-input>
@@ -118,18 +118,18 @@
     </script>
     <script type="text/x-template" id="datePickerDemo">
         <div>
-            <m-datepicker></m-datepicker>
+            <m-datepicker v-model="date"></m-datepicker>
         </div>
     </script>
     <script src="./lib/vue.js"></script>
     
     <!-- use this during local development -->
-<!--     <script src="http://localhost:9000/dist/main.js"></script>
-    <script src="http://localhost:9000/dist/style.js"></script> -->
+    <script src="http://localhost:9000/dist/main.js"></script>
+    <script src="http://localhost:9000/dist/style.js"></script>
    
   
-	 <script src="./dist/main.js"></script>
-	 <script src="./dist/style.js"></script>
+<!-- 	 <script src="./dist/main.js"></script>
+	 <script src="./dist/style.js"></script> -->
       <!-- do not use this during local development, this is used for gh-pages
       -->
     <script>
@@ -284,7 +284,7 @@
 <m-datepicker></m-datepicker>
                     `    
             return {
-
+                date:"2016-07-10"
             }        
         }
     })
