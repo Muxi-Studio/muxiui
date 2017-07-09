@@ -18,12 +18,14 @@
             <m-button :on-click="switchType.bind(this, 'radio')">Radio</m-button>
             <m-button :on-click="switchType.bind(this, 'checkbox')">Checkbox</m-button>
             <m-button :on-click="switchType.bind(this, 'datepicker')">DatePicker</m-button>
+            <m-button :on-click="switchType.bind(this, 'menu')">Menu</m-button>
             <button-demo v-if="type === 'button'"></button-demo>
             <toast-demo v-else-if="type === 'toast'"></toast-demo>
             <form-demo v-else-if="type === 'form'"></form-demo>
             <radio-demo v-else-if="type === 'radio'"></radio-demo>
             <checkbox-demo v-else-if="type === 'checkbox'"></checkbox-demo>
             <datepicker-demo v-else-if="type === 'datepicker'"></datepicker-demo>
+            <menu-demo v-else-if="type === 'menu'"></menu-demo>
             <div v-else>
                 Not A/B/C
             </div>
@@ -119,6 +121,15 @@
     <script type="text/x-template" id="datePickerDemo">
         <div>
             <m-datepicker v-model="date"></m-datepicker>
+        </div>
+    </script>
+    <script type="text/x-template" id="menuDemo">
+        <div>
+            <m-menu>
+                <m-menu-item label="a"></m-menu-item>
+                <m-menu-item label="b">导航2</m-menu-item>
+                <m-menu-item label="c">导航3</m-menu-item>
+            </m-menu>
         </div>
     </script>
     <script src="./lib/vue.js"></script>
@@ -259,13 +270,15 @@
         data: function() {
             const html =
                 `
-<h3>Button</h3>
-<m-button :on-click="onclick">确认</m-button></p>
-<p><m-button type="error">错误</m-button></p>
-<p><m-button type="warning">警告</m-button></p>
+<h3>Checkbox</h3>
+<m-checkbox-group v-model="checkbox">
+    <m-checkbox label="1"></m-checkbox>
+    <m-checkbox label="2"></m-checkbox>
+    <m-checkbox label="3"></m-checkbox>
+</m-checkbox-group>
                     `
             return {
-                checkbox: [],
+                checkbox: ["1"],
                 html: escapeHtml(html),
             }
         },
@@ -282,6 +295,19 @@
                 `
 <h3>DatePicker</h3><p>
 <m-datepicker></m-datepicker>
+                    `    
+            return {
+                date:"2016-07-10"
+            }        
+        }
+    })
+    const menuDemo = Vue.extend({
+        template: "#menuDemo",
+        data: function() {
+            const html =
+                `
+<h3>DatePicker</h3><p>
+<m-menu></m-menu>
                     `    
             return {
                 date:"2016-07-10"
@@ -307,7 +333,8 @@
             "form-demo": formDemo,
             "radio-demo": radioDemo,
             "checkbox-demo": checkboxDemo,
-            "datepicker-demo": datepickerDemo
+            "datepicker-demo": datepickerDemo,
+            "menu-demo": menuDemo
         }
     })
     </script>
