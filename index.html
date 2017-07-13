@@ -126,8 +126,18 @@
     <script type="text/x-template" id="menuDemo">
         <div>
             <m-menu>
-                <m-menu-item label="a"></m-menu-item>
-                <m-menu-item label="b">导航2</m-menu-item>
+                <m-submenu label="a">
+                    <a slot="title">导航1</a>
+                    <m-menu-item label="b">导航1-1</m-menu-item>
+                    <m-submenu label="c">
+                        <m-menu-item label="b">导航1-1</m-menu-item>
+                        <m-menu-item label="c">导航1-2</m-menu-item>
+                    </m-submenu>
+                </m-submenu>
+                <m-submenu label="b">
+                    <m-menu-item label="b">导航1-1</m-menu-item>
+                    <m-menu-item label="c">导航1-2</m-menu-item>
+                </m-submenu>
                 <m-menu-item label="c">导航3</m-menu-item>
             </m-menu>
         </div>
