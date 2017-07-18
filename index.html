@@ -125,7 +125,7 @@
     </script>
     <script type="text/x-template" id="menuDemo">
         <div>
-            <m-menu trigger="click">
+            <m-menu trigger="hover">
                 <m-submenu label="a" index="1">
                     <a slot="title">导航1</a>
                     <m-menu-item label="b" index="1-1">导航1-1</m-menu-item>
@@ -134,8 +134,8 @@
                         <m-menu-item label="c" index="1-2-2">导航1-2</m-menu-item>
                     </m-submenu>
                 </m-submenu>
-                <m-submenu label="b" index="2">
-                    <m-menu-item label="b" index="2-1">导航2-1</m-menu-item>
+                <m-submenu label="b" index="2" @open="open" @close="close" @select="selectSubmenu">
+                    <m-menu-item label="b" index="2-1" @select="selectItem">导航2-1</m-menu-item>
                     <m-menu-item label="c" index="2-2">导航2-2</m-menu-item>
                 </m-submenu>
                 <m-menu-item label="c" index="3">导航3</m-menu-item>
@@ -322,6 +322,20 @@
             return {
                 date:"2016-07-10"
             }        
+        },
+        methods:{
+            open:function(index){
+                console.log("open index " +index)
+            },
+            close:function(index){
+                console.log("close index " +index)
+            },
+            selectSubmenu: function(index){
+                console.log(index)
+            },
+            selectItem:function(index){
+                console.log(index)
+            }
         }
     })
     const demo = new Vue({
