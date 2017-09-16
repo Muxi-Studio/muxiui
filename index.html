@@ -19,6 +19,7 @@
             <m-button :on-click="switchType.bind(this, 'checkbox')">Checkbox</m-button>
             <m-button :on-click="switchType.bind(this, 'datepicker')">DatePicker</m-button>
             <m-button :on-click="switchType.bind(this, 'menu')">Menu</m-button>
+            <m-button :on-click="switchType.bind(this, 'table')">Table</m-button>
             <button-demo v-if="type === 'button'"></button-demo>
             <toast-demo v-else-if="type === 'toast'"></toast-demo>
             <form-demo v-else-if="type === 'form'"></form-demo>
@@ -26,6 +27,7 @@
             <checkbox-demo v-else-if="type === 'checkbox'"></checkbox-demo>
             <datepicker-demo v-else-if="type === 'datepicker'"></datepicker-demo>
             <menu-demo v-else-if="type === 'menu'"></menu-demo>
+            <table-demo v-else-if="type === 'table'"></table-demo>
             <div v-else>
                 Not A/B/C
             </div>
@@ -140,6 +142,40 @@
                 </m-submenu>
                 <m-menu-item label="c" index="3">导航3</m-menu-item>
             </m-menu>
+        </div>
+    </script>
+    <script type="text/x-template" id="tableDemo">
+        <div>
+            <m-table
+            :data="table">
+                <m-table-col
+                prop="kind"
+                label="种类"
+                width="180">
+                </m-table-col>
+                <m-table-col
+                prop="title"
+                label="标题"
+                width="380">
+                </m-table-col>
+                <m-table-col
+                prop="author"
+                label="作者"
+                width="100">
+                </m-table-col>
+                <m-table-col
+                prop="likes"
+                label="点赞数"
+                width="200">
+                </m-table-col>
+                <m-table-col
+                label="操作"
+                prop="active"
+                width="200">
+                <!-- <m-button></m-button> -->
+                <div>haha</div>
+                </m-table-col>
+            </m-table>
         </div>
     </script>
     <script src="./lib/vue.js"></script>
@@ -338,6 +374,37 @@
             }
         }
     })
+    const tableDemo = Vue.extend({
+        template: "#tableDemo",
+        data: function() {
+            const html =
+                `
+                    `    
+            return {
+                table:[{
+                    kind:1,
+                    title: "Dope",
+                    author: "Amanda",
+                    likes: 190
+                },{
+                    kind:2,
+                    title: "Yo",
+                    author: "Rose",
+                    likes: 18
+                },{
+                    kind:2,
+                    title: "Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup",
+                    author: "Elegenthus",
+                    likes: 189
+                },{
+                    kind:1,
+                    title: "Wo",
+                    author: "Cruyun",
+                    likes: 1001
+                }]
+            }        
+        }
+    })
     const demo = new Vue({
         el: ".app",
         template: "#demo",
@@ -358,7 +425,8 @@
             "radio-demo": radioDemo,
             "checkbox-demo": checkboxDemo,
             "datepicker-demo": datepickerDemo,
-            "menu-demo": menuDemo
+            "menu-demo": menuDemo,
+            "table-demo": tableDemo,
         }
     })
     </script>
