@@ -172,8 +172,9 @@
                 label="操作"
                 prop="active"
                 width="200">
-                <!-- <m-button></m-button> -->
-                <div>haha</div>
+                  <template scope="row">
+                      <m-button type="error" :on-click="onclick.bind(this, row.index)">Delete</m-button>
+                  </template>
                 </m-table-col>
             </m-table>
         </div>
@@ -376,27 +377,36 @@
     })
     const tableDemo = Vue.extend({
         template: "#tableDemo",
+         methods: {
+        onclick: (id) => {
+            console.log(id)
+        }
+    },
         data: function() {
             const html =
                 `
                     `    
             return {
                 table:[{
+                    id:1,
                     kind:1,
                     title: "Dope",
                     author: "Amanda",
                     likes: 190
                 },{
+                    id:2,
                     kind:2,
                     title: "Yo",
                     author: "Rose",
                     likes: 18
                 },{
+                    id:3,
                     kind:2,
                     title: "Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup",
                     author: "Elegenthus",
                     likes: 189
                 },{
+                    id:4,
                     kind:1,
                     title: "Wo",
                     author: "Cruyun",
