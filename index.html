@@ -12,6 +12,14 @@
     <div class="app"></div>
     <script type="text/x-template" id="demo">
         <div>
+            <m-row>
+              <m-col :span="6">
+                <div>50%</div>
+              </m-col>
+              <m-col :span="6">
+                <div>50%</div>
+              </m-col>
+            </m-row>
             <m-button :on-click="switchType.bind(this, 'button')">Button</m-button>
             <m-button :on-click="switchType.bind(this, 'toast')">Toast</m-button>
             <m-button :on-click="switchType.bind(this, 'form')">Form</m-button>
