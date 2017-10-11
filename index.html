@@ -30,10 +30,12 @@
 
      /* global style*/
       html {
+        -webkit-font-smoothing: antialiased;
         height: 100%;
         font-family: Applied Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
       }
       body {
+          position: relative;
           margin: 0;
           height: 100%;
       }
@@ -92,6 +94,7 @@
 
       /* main style*/
       main{
+        position: relative;
         display: flex;
         width: 70%;
         margin: 0 auto;
@@ -105,8 +108,8 @@
         border-right: 1px solid #f2f2f2;
       }
       main nav li {
-          list-style: none;
-          display: block;
+        list-style: none;
+        display: block;
         padding: 10px 25px;
         min-width: 170px;
         height: 38px;
@@ -118,7 +121,7 @@
       }
       main nav .active {
         color: #1bbc9b;
-    border-right: 2px solid #1bbc9b;
+        border-right: 2px solid #1bbc9b;
       }
       main content {
         flex: 1;
@@ -135,6 +138,16 @@
         font-size: 16px;  
       }
       /* end main style*/
+
+      footer{
+          width:100%;
+          height: 30px;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          text-align: center;
+          font-size:13px;
+      }
     </style>
 </head>
 
@@ -188,6 +201,7 @@
                     Not A/B/C
                 </div>
             </content>
+            <footer>Built with Vuejs and 💚. Designed by MuxiUED. 2014-2017 <img src="http://wx3.sinaimg.cn/large/64c45edcgy1fkeeosrsnhj20au04s74t.jpg" style="width:40px; display:inline-block;vertical-align:-4px"/></footer>
         </main>
     </script>
     <script type="text/x-template" id="buttonDemo">
@@ -230,26 +244,35 @@
     </script>
     <script type="text/x-template" id="formDemo">
         <div>
-            <h3>Input</h3>
-            <div style="display:inline-block;vertical-align:top">
+            <div class="title">
+                <p>Input</p>
+            </div>
+            <div style="margin-top:20px;">
                 <m-input  label="姓名" v-on:onblur="onBlur(1)" v-model="text_name" :message="message_name"></m-input>
             </div>
-            <div>{{ text_name }}</div>
-            <div style="display:inline-block;vertical-align:top">
+            <div style="margin:10px 0; font-size:14px">姓名：{{ text_name }}</div>
+            <div class="title" style="height:1px;">
+            </div>
+            <div style="margin-top:20px;">
                 <m-input placeholder="请输入学号" label="学号" v-model="text_num" v-on:onblur="onBlur(2)"></m-input>
             </div>
             <p></p>
             <m-input placeholder="请输入课程" v-model="text_course"></m-input>
-            <p>Code:</p>
+            <div class="title">
+                <p>Code</p>
+            </div>
             <p>
                 <pre>
                     <code class="html" v-html="text_html" v-highlight></code>
                 </pre>
             </p>
-            <h3>TextArea</h3>
-            <m-textarea placeholder="请输入一段关于..." v-model="textarea_one"></m-textarea>
-            <m-textarea v-model="textarea_two" :message="textmessage"></m-textarea>
-            <p>Code:</p>
+            <div class="title">
+                <p>TextArea</p>
+            </div>
+            <m-textarea placeholder="请输入一段关于..." v-model="textarea_two" :message="textmessage"></m-textarea>
+            <div class="title">
+                <p>Code</p>
+            </div>
             <p>
                 <pre>
                     <code class="html" v-html="textarea_html" v-highlight></code>
@@ -419,14 +442,9 @@
         data: function() {
             const text_html =
                 `
-<h3>Input</h3>
-<div style="display:inline-block;vertical-align:top">
-    <m-input placeholder="请输入姓名" label="姓名" v-on:onBlur="onBlur" v-model="text_name" :message="message_name"></m-input>
-</div>
-<div style="display:inline-block;vertical-align:top">
-    <m-input placeholder="请输入学号" label="学号" v-model="text_num"></m-input>
-</div>
-<p></p>
+<m-input placeholder="请输入姓名" label="姓名" v-on:onBlur="onBlur" v-model="text_name" :message="我是message"></m-input>
+<div>姓名：{{ text_name }}</div>
+<m-input placeholder="请输入学号" label="学号" v-model="text_num"></m-input>
 <m-input placeholder="请输入课程" v-model="text_course"></m-input>
                     `
             const textarea_html =
@@ -437,9 +455,9 @@
                     `
             return {
                 foo: 1,
-                text_name:"hah",
-                message_name:"message!",
-                text_num:"1234",
+                text_name:"刘指导",
+                message_name:"我是message",
+                text_num:"2013211387",
                 text_course:"",
                 textarea_one:"textarea_one",
                 textarea_two:"",
