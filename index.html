@@ -6,6 +6,29 @@
     <title>MuxiUI-A UI framework for developing  mannagement system, build by MFE</title>
     <link rel="stylesheet" href="../lib/default.min.css">
     <style>
+        /* highlihgt style*/
+        @font-face {
+  font-family: "Roboto Mono";
+  src: url("../lib/RobotoMono-Regular.ttf");
+}
+        .hljs-tag {
+            color:#2973b7;
+        }
+        .hljs-string{
+            color:#1bbc9b;
+        }
+        .hljs {
+            background-color:#f8f8f8;
+            font-family: "Roboto Mono", Monaco, courier, monospace;
+            font-size: 0.8em;
+    -webkit-font-smoothing: antialiased;
+    padding: 1.2em 1.4em;
+    overflow: scroll;
+        }
+     /* end highlihgt style*/
+
+
+     /* global style*/
       html {
         height: 100%;
         font-family: Applied Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
@@ -14,6 +37,9 @@
           margin: 0;
           height: 100%;
       }
+      /* end global style*/
+
+      /* header style*/
       header{
         position: fixed;
         display: flex;
@@ -62,6 +88,9 @@
     transform: translate3d(0,2px,0);
     background-color: #1bbc9b;
       }
+       /* end header style*/
+
+      /* main style*/
       main{
         display: flex;
         width: 70%;
@@ -105,6 +134,7 @@
         line-height: 1.7;
         font-size: 16px;  
       }
+      /* end main style*/
     </style>
 </head>
 
@@ -124,6 +154,7 @@
         </nav>
     </header>
     <div class="app"></div>
+    <script src="../lib/highlight.min.js"></script>
     <script type="text/x-template" id="demo">
         <main>
             <nav>
@@ -164,24 +195,29 @@
             <div class="title">
                 <p>Button</p>
             </div>
-            <div style="width:280px; margin-top:20px;">
+            <div style="width:380px; margin-top:20px;">
                     <m-row>
-                        <m-col :span="4">
+                        <m-col :span="3">
                             <m-button :on-click="onclick">确认</m-button>
                         </m-col>
-                        <m-col :span="4">
+                        <m-col :span="3">
                             <m-button type="error">错误</m-button>
                         </m-col>
-                        <m-col :span="4">
+                        <m-col :span="3">
                             <m-button type="warning">警告</m-button>
+                        </m-col>
+                        <m-col :span="3">
+                            <m-button type="ghost">幽灵</m-button>
                         </m-col>
                     </m-row>
                 </div>
             
-            <p>Code:</p>
+            <div class="code">
+                <p>Button</p>
+             </div>
             <p>
             	<pre>
-            		<code class="html" v-html="html"></code>
+            		<code class="html lang-html" v-html="html" v-highlight></code>
             	</pre>
             </p>
         </div>
@@ -207,7 +243,7 @@
             <p>Code:</p>
             <p>
                 <pre>
-                    <code class="html" v-html="text_html"></code>
+                    <code class="html" v-html="text_html" v-highlight></code>
                 </pre>
             </p>
             <h3>TextArea</h3>
@@ -216,7 +252,7 @@
             <p>Code:</p>
             <p>
                 <pre>
-                    <code class="html" v-html="textarea_html"></code>
+                    <code class="html" v-html="textarea_html" v-highlight></code>
                 </pre>
             </p>
         </div>
@@ -324,11 +360,8 @@
 	 <script src="./dist/style.js"></script>
 
     <script>
-    // Register a global custom directive called v-focus
     Vue.directive('highlight', {
-        // When the bound element is inserted into the DOM...
         inserted: function(el) {
-            // Focus the element
             hljs.highlightBlock(el);
         }
     })
@@ -347,10 +380,10 @@
         data: function() {
             const html =
                 `
-<h3>Button</h3><p>
-<m-button :on-click="onclick">确认</m-button></p>
-<p><m-button type="error">错误</m-button></p>
-<p><m-button type="warning">警告</m-button></p>
+<m-button :on-click="onclick">确认</m-button>
+<m-button type="error">错误</m-button>
+<m-button type="warning">警告</m-button>
+<m-button type="ghost">幽灵</m-button>
 					`
             return {
                 foo: 1,
@@ -574,7 +607,6 @@
         }
     })
     </script>
-     <script src="../lib/highlight.min.js"></script>
 </body>
 
 </html>
