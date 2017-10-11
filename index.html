@@ -3,56 +3,181 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>MUI-A UI framework for developing desktop web applications</title>
+    <title>MuxiUI-A UI framework for developing  mannagement system, build by MFE</title>
     <link rel="stylesheet" href="../lib/default.min.css">
+    <style>
+      html {
+        height: 100%;
+        font-family: Applied Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+      }
+      body {
+          margin: 0;
+          height: 100%;
+      }
+      header{
+        position: fixed;
+        display: flex;
+        width: 100%;
+        background: hsla(0,0%,100%,.6);
+        border-bottom: 1px solid #ddd;
+        padding: 0 15%;
+        height: 60px;
+        line-height: 60px;
+        box-sizing: border-box;
+        box-shadow: 0 1px 1px rgba(0,0,0,.08);
+        z-index: 1;
+      }
+      .logo{
+        font-family: Pacifico,cursive;
+        background: -webkit-linear-gradient(left,#f4d03f,#2ecc71,#1bbc9b);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        font-size: 27px;
+      }
+      header nav{
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+        font-weight: 300;
+      }
+      header nav .item {
+        color: #333;
+    padding: 0 12px 0 5px;
+    font-weight: 300;
+    position: relative;
+      }
+      header nav .item a{
+        color: #333;
+        text-decoration: none;
+      }
+      header nav .item-active:after{
+        content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    -webkit-transform: translate3d(0,2px,0);
+    transform: translate3d(0,2px,0);
+    background-color: #1bbc9b;
+      }
+      main{
+        display: flex;
+        width: 70%;
+        margin: 0 auto;
+        padding: 90px 0;
+        min-height: 100%;
+    box-sizing: border-box;
+      }
+      main nav {
+        width: 200px;
+        color: #333;
+        border-right: 1px solid #f2f2f2;
+      }
+      main nav li {
+          list-style: none;
+          display: block;
+        padding: 10px 25px;
+        min-width: 170px;
+        height: 38px;
+        color: #333;
+        text-decoration: none;
+        box-sizing: border-box;
+        font-weight: 300;
+        cursor: pointer;
+      }
+      main nav .active {
+        color: #1bbc9b;
+    border-right: 2px solid #1bbc9b;
+      }
+      main content {
+        flex: 1;
+        margin-left: 20px;
+      }
+      main .title {
+        color: #666;
+        line-height: 1.7;
+        font-size: 16px;  
+        border-bottom: 1px solid #f0f0f0;
+      }
+      main .title p{
+        line-height: 1.7;
+        font-size: 16px;  
+      }
+    </style>
 </head>
 
 <body>
-    <h1>MUI Components</h1>
+    <header>
+        <div class="logo">MuxiUI</div>
+        <nav>
+            <div class="item">
+                <a>Guidelines</a>
+            </div>
+            <div class="item item-active">
+                <a>Components</a>
+            </div>
+            <div class="item">
+                <a href="https://github.com/muxi-studio/mui">Github</a>
+            </div>
+        </nav>
+    </header>
     <div class="app"></div>
     <script type="text/x-template" id="demo">
-        <div>
-            <m-row>
+        <main>
+            <nav>
+                <li v-bind:class="type === 'button' ? 'active':null" @click="switchType('button')">Button</li>
+                <li v-bind:class="type === 'toast' ? 'active':null" @click="switchType('toast')">Toast</li>
+                <li v-bind:class="type === 'form' ? 'active':null" @click="switchType('form')">Form</li>
+                <li v-bind:class="type === 'radio' ? 'active':null" @click="switchType('radio')">Radio</li>
+                <li v-bind:class="type === 'checkbox' ? 'active':null" @click="switchType('checkbox')">Checkbox</li>
+                <li v-bind:class="type === 'datepicker' ? 'active':null" @click="switchType('datepicker')">DatePicker</li>
+                <li v-bind:class="type === 'menu' ? 'active':null" @click="switchType('menu')">Menu</li>
+                <li v-bind:class="type === 'table' ? 'active':null" @click="switchType('table')">Table</li>
+            </nav>
+            <!-- <m-row>
               <m-col :span="6">
                 <div>50%</div>
               </m-col>
               <m-col :span="6">
                 <div>50%</div>
               </m-col>
-            </m-row>
-            <m-button :on-click="switchType.bind(this, 'button')">Button</m-button>
-            <m-button :on-click="switchType.bind(this, 'toast')">Toast</m-button>
-            <m-button :on-click="switchType.bind(this, 'form')">Form</m-button>
-            <m-button :on-click="switchType.bind(this, 'radio')">Radio</m-button>
-            <m-button :on-click="switchType.bind(this, 'checkbox')">Checkbox</m-button>
-            <m-button :on-click="switchType.bind(this, 'datepicker')">DatePicker</m-button>
-            <m-button :on-click="switchType.bind(this, 'menu')">Menu</m-button>
-            <m-button :on-click="switchType.bind(this, 'table')">Table</m-button>
-            <button-demo v-if="type === 'button'"></button-demo>
-            <toast-demo v-else-if="type === 'toast'"></toast-demo>
-            <form-demo v-else-if="type === 'form'"></form-demo>
-            <radio-demo v-else-if="type === 'radio'"></radio-demo>
-            <checkbox-demo v-else-if="type === 'checkbox'"></checkbox-demo>
-            <datepicker-demo v-else-if="type === 'datepicker'"></datepicker-demo>
-            <menu-demo v-else-if="type === 'menu'"></menu-demo>
-            <table-demo v-else-if="type === 'table'"></table-demo>
-            <div v-else>
-                Not A/B/C
-            </div>
-        </div>
+            </m-row> -->
+           <content>
+                <button-demo v-if="type === 'button'"></button-demo>
+                <toast-demo v-else-if="type === 'toast'"></toast-demo>
+                <form-demo v-else-if="type === 'form'"></form-demo>
+                <radio-demo v-else-if="type === 'radio'"></radio-demo>
+                <checkbox-demo v-else-if="type === 'checkbox'"></checkbox-demo>
+                <datepicker-demo v-else-if="type === 'datepicker'"></datepicker-demo>
+                <menu-demo v-else-if="type === 'menu'"></menu-demo>
+                <table-demo v-else-if="type === 'table'"></table-demo>
+                <div v-else>
+                    Not A/B/C
+                </div>
+            </content>
+        </main>
     </script>
     <script type="text/x-template" id="buttonDemo">
         <div>
-            <h3>Button</h3>
-            <p>
-                <m-button :on-click="onclick">确认</m-button>
-            </p>
-            <p>
-                <m-button type="error">错误</m-button>
-            </p>
-            <p>
-                <m-button type="warning">警告</m-button>
-            </p>
+            <div class="title">
+                <p>Button</p>
+            </div>
+            <div style="width:280px; margin-top:20px;">
+                    <m-row>
+                        <m-col :span="4">
+                            <m-button :on-click="onclick">确认</m-button>
+                        </m-col>
+                        <m-col :span="4">
+                            <m-button type="error">错误</m-button>
+                        </m-col>
+                        <m-col :span="4">
+                            <m-button type="warning">警告</m-button>
+                        </m-col>
+                    </m-row>
+                </div>
+            
             <p>Code:</p>
             <p>
             	<pre>
@@ -190,14 +315,14 @@
     <script src="./lib/vue.js"></script>
     
     <!-- use this during local development -->
-    <script src="http://localhost:9000/dist/main.js"></script>
-    <script src="http://localhost:9000/dist/style.js"></script>
+    <!-- <script src="http://localhost:9000/dist/main.js"></script>
+    <script src="http://localhost:9000/dist/style.js"></script> -->
    
-  
-<!-- 	 <script src="./dist/main.js"></script>
-	 <script src="./dist/style.js"></script> -->
-      <!-- do not use this during local development, this is used for gh-pages
+    <!-- do not use this during local development, this is used for gh-pages
       -->
+	 <script src="./dist/main.js"></script>
+	 <script src="./dist/style.js"></script>
+
     <script>
     // Register a global custom directive called v-focus
     Vue.directive('highlight', {
@@ -434,6 +559,7 @@
         methods: {
             switchType: function(type) {
                 this.type = type
+                console.log(type)
             }
         },
         components: {
