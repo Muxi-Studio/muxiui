@@ -18,6 +18,7 @@
             color:#1bbc9b;
         }
         .hljs {
+            max-width: 800px;
             background-color:#f8f8f8;
             font-family: "Roboto Mono", Monaco, courier, monospace;
             font-size: 0.8em;
@@ -39,6 +40,9 @@
           margin: 0;
           height: 100%;
       }
+      p, pre {
+          margin: 0;
+      }
       /* end global style*/
 
       /* header style*/
@@ -56,11 +60,13 @@
         z-index: 1;
       }
       .logo{
-        font-family: Pacifico,cursive;
-        background: -webkit-linear-gradient(left,#f4d03f,#2ecc71,#1bbc9b);
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-        font-size: 27px;
+        width: 70px;
+        padding-top: 9px;
+        padding-left: 24px;
+      }
+      .logo img{
+          width:100%;
+          height: auto;
       }
       header nav{
         display: flex;
@@ -128,6 +134,7 @@
         margin-left: 20px;
       }
       main .title {
+        padding-bottom: 10px;
         color: #666;
         line-height: 1.7;
         font-size: 16px;  
@@ -136,6 +143,11 @@
       main .title p{
         line-height: 1.7;
         font-size: 16px;  
+      }
+      main .section {
+          color:#666;
+          padding:20px 0px;
+          font-size: 15px;
       }
       /* end main style*/
 
@@ -153,7 +165,9 @@
 
 <body>
     <header>
-        <div class="logo">MuxiUI</div>
+        <div class="logo">
+            <img src="./img/mui.png" alt="logo">
+        </div>
         <nav>
             <div class="item">
                 <a>Guidelines</a>
@@ -226,20 +240,47 @@
                     </m-row>
                 </div>
             
-            <div class="code">
-                <p>Button</p>
-             </div>
-            <p>
-            	<pre>
-            		<code class="html lang-html" v-html="html" v-highlight></code>
-            	</pre>
-            </p>
+            <div class="section">Code</div>
+                <pre class="html lang-html" v-html="html" v-highlight>
+            </pre>
+            
+            <div class="section">API</div>
+            <div>
+                    <m-table
+                    :data="apiInfo">
+                        <m-table-col
+                        prop="prop"
+                        label="Property"
+                        width="180">
+                        </m-table-col>
+                        <m-table-col
+                        prop="type"
+                        label="Type"
+                        width="380">
+                        </m-table-col>
+                        <m-table-col
+                        prop="description"
+                        label="Description"
+                        width="100">
+                        </m-table-col>
+                        <m-table-col
+                        prop="default"
+                        label="Default"
+                        width="200">
+                        </m-table-col>
+                    </m-table>
+            </div>
         </div>
     </script>
     <script type="text/x-template" id="toastDemo">
         <div>
+            <div class="title" style="margin-bottom:20px;">
+                <p>Toast</p>
+            </div>
             <m-button :on-click="toggleToast">显示toast</m-button>
             <m-toast v-show="show" @close="toggleToast">哈哈哈哈</m-toast>
+            <div class="section">Code</div>
+            <div class="section">API</div>
         </div>
     </script>
     <script type="text/x-template" id="formDemo">
@@ -256,28 +297,84 @@
             <div style="margin-top:20px;">
                 <m-input placeholder="请输入学号" label="学号" v-model="text_num" v-on:onblur="onBlur(2)"></m-input>
             </div>
-            <p></p>
-            <m-input placeholder="请输入课程" v-model="text_course"></m-input>
-            <div class="title">
-                <p>Code</p>
-            </div>
-            <p>
-                <pre>
-                    <code class="html" v-html="text_html" v-highlight></code>
-                </pre>
-            </p>
-            <div class="title">
-                <p>TextArea</p>
-            </div>
+            <div class="section">Code</div>
+            <pre class="html" v-html="text_html" v-highlight></pre>
+            <div class="section">API</div>
+            <div>
+                <m-table
+                :data="inputApiInfo">
+                    <m-table-col
+                    prop="prop"
+                    label="Property"
+                    width="180">
+                    </m-table-col>
+                    <m-table-col
+                    prop="type"
+                    label="Type"
+                    width="380">
+                    </m-table-col>
+                    <m-table-col
+                    prop="description"
+                    label="Description"
+                    width="100">
+                    </m-table-col>
+                    <m-table-col
+                    prop="default"
+                    label="Default"
+                    width="200">
+                    </m-table-col>
+                </m-table>
+        </div>
+        <div class="section">Events</div> 
+        <div>
+            <m-table
+            :data="inputEventInfo">
+                <m-table-col
+                prop="name"
+                label="Event Name">
+                </m-table-col>
+                <m-table-col
+                prop="description"
+                label="Description"
+                width="100">
+                </m-table-col>
+                <m-table-col
+                prop="params"
+                label="Paramaters"
+                width="200">
+                </m-table-col>
+            </m-table>
+    </div>
+            <div class="section">TextArea</div>
             <m-textarea placeholder="请输入一段关于..." v-model="textarea_two" :message="textmessage"></m-textarea>
-            <div class="title">
-                <p>Code</p>
-            </div>
-            <p>
-                <pre>
-                    <code class="html" v-html="textarea_html" v-highlight></code>
-                </pre>
-            </p>
+            <div class="section">Code</div>
+            <pre class="html" v-html="textarea_html" v-highlight></pre>
+            <div class="section">API</div>
+            <div>
+                <m-table
+                :data="textareaApiInfo">
+                    <m-table-col
+                    prop="prop"
+                    label="Property"
+                    width="180">
+                    </m-table-col>
+                    <m-table-col
+                    prop="type"
+                    label="Type"
+                    width="380">
+                    </m-table-col>
+                    <m-table-col
+                    prop="description"
+                    label="description"
+                    width="100">
+                    </m-table-col>
+                    <m-table-col
+                    prop="default"
+                    label="default"
+                    width="200">
+                    </m-table-col>
+                </m-table>
+        </div>
         </div>
     </script>
     <script type="text/x-template" id="radioDemo">
@@ -342,7 +439,7 @@
             :data="table">
                 <m-table-col
                 prop="kind"
-                label="种类"
+                label="分类"
                 width="180">
                 </m-table-col>
                 <m-table-col
@@ -357,7 +454,7 @@
                 </m-table-col>
                 <m-table-col
                 prop="likes"
-                label="点赞数"
+                label="浏览量"
                 width="200">
                 </m-table-col>
                 <m-table-col
@@ -409,7 +506,20 @@
 <m-button type="ghost">幽灵</m-button>
 					`
             return {
-                foo: 1,
+                apiInfo: [
+                    {
+                        prop: "type",
+                        type: "string",
+                        description: "Type of button. Accepted values: primary/warning/error/ghost.",
+                        default: "primary"
+                    },
+                    {
+                        prop: "on-click",
+                        type: "function",
+                        description: "Button click callback.",
+                        default: "/"
+                    }
+                ],
                 html: escapeHtml(html),
             }
         },
@@ -445,7 +555,6 @@
 <m-input placeholder="请输入姓名" label="姓名" v-on:onBlur="onBlur" v-model="text_name" :message="我是message"></m-input>
 <div>姓名：{{ text_name }}</div>
 <m-input placeholder="请输入学号" label="学号" v-model="text_num"></m-input>
-<m-input placeholder="请输入课程" v-model="text_course"></m-input>
                     `
             const textarea_html =
                 `
@@ -454,7 +563,6 @@
 <m-textarea v-model="textarea_two" :message="textmessage"></m-textarea>
                     `
             return {
-                foo: 1,
                 text_name:"刘指导",
                 message_name:"我是message",
                 text_num:"2013211387",
@@ -464,6 +572,47 @@
                 textmessage:"message for textarea",
                 text_html: escapeHtml(text_html),
                 textarea_html: escapeHtml(textarea_html),
+                inputApiInfo: [
+                    {
+                        prop: "placeholder",
+                        type: "string",
+                        description: "Placeholder of input.",
+                        default: "/"
+                    },
+                    {
+                        prop: "label",
+                        type: "string",
+                        description: "The label text displayed on top of the input.",
+                        default: "/"
+                    },
+                    {
+                        prop: "message",
+                        type: "string",
+                        description: "The message displayed below the input.",
+                        default: "/"
+                    }
+                ],
+                inputEventInfo: [
+                    {
+                        name: "blur",
+                        description: "On blur event.",
+                        params: "/"
+                    }
+                ],
+                textareaApiInfo: [
+                {
+                    prop: "placeholder",
+                    type: "string",
+                    description: "Placeholder of input.",
+                    default: "/"
+                },
+                {
+                    prop: "message",
+                    type: "string",
+                    description: "The message displayed below the input.",
+                    default: "/"
+                }
+                ]
             }
         },
         methods: {
@@ -573,26 +722,26 @@
             return {
                 table:[{
                     id:1,
-                    kind:1,
-                    title: "Dope",
+                    kind:"图集",
+                    title: "图集· 日光倾城",
                     author: "Amanda",
                     likes: 190
                 },{
                     id:2,
-                    kind:2,
-                    title: "Yo",
+                    kind:"图集",
+                    title: "图集·军训，再见",
                     author: "Rose",
                     likes: 18
                 },{
                     id:3,
-                    kind:2,
-                    title: "Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup Whassup",
+                    kind:"水墨",
+                    title: "乐在桂花节",
                     author: "Elegenthus",
                     likes: 189
                 },{
                     id:4,
-                    kind:1,
-                    title: "Wo",
+                    kind:"新闻",
+                    title: "关于实施校园网运营服务模式改革相关情况的说明",
                     author: "Cruyun",
                     likes: 1001
                 }]
