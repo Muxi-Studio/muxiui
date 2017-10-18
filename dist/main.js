@@ -1827,9 +1827,6 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _bus = __webpack_require__(3);
-
 exports.default = {
     name: "m-table-col",
     props: ["width", "prop", "label"],
@@ -1845,7 +1842,7 @@ exports.default = {
             conf.content = this.$scopedSlots.default;
             console.log(conf.content);
         }
-        _bus.bus.$emit("initCol", conf);
+        this.$parent.$emit("initCol", conf);
     },
     render: function render() {
         return null;
@@ -1940,7 +1937,7 @@ exports.default = {
         };
     },
     created: function created() {
-        _bus.bus.$on("initCol", this.addCol);
+        this.$on("initCol", this.addCol);
     },
     mounted: function mounted() {},
 
@@ -2480,7 +2477,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\nth {\n  box-sizing: border-box;\n  border-bottom: 1px solid #c3dbd8;\n  padding: 10px;\n  background-color: #c3dbd8;\n}\n", ""]);
+exports.push([module.i, "\nth {\n  box-sizing: border-box;\n  border-bottom: 1px solid #c3dbd8;\n  padding: 10px;\n  background-color: #c3dbd8;\n  font-size: 18px;\n}\n", ""]);
 
 // exports
 
@@ -2648,7 +2645,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n.m-textarea {\n  width: 430px;\n  height: 80px;\n  font-size: 16px;\n  border: 1px solid #c3dbd8;\n  outline: none;\n  padding: 10px;\n  border-radius: 4px;\n  color: #1f2d2d;\n}\n.m-textarea:focus {\n    color: #354949;\n    border-color: #1bbc9b;\n}\n.m-textarea:focus + .m-message {\n      color: #1bbc9b;\n}\n.m-message {\n  margin: 2px 0px 0px 0px;\n  text-indent: 2px;\n  color: #c3dbd8;\n}\n", ""]);
+exports.push([module.i, "\n.m-textarea {\n  width: 430px;\n  height: 80px;\n  font-size: 16px;\n  border: 1px solid #c3dbd8;\n  outline: none;\n  padding: 10px;\n  border-radius: 4px;\n  color: #1f2d2d;\n}\n.m-textarea:focus {\n    color: #354949;\n    border-color: #1bbc9b;\n}\n.m-textarea:focus + .m-message {\n      color: #1bbc9b;\n}\n.m-textarea::placeholder {\n    color: #c3dbd8;\n}\n.m-message {\n  margin: 2px 0px 0px 0px;\n  text-indent: 2px;\n  color: #c3dbd8;\n}\n", ""]);
 
 // exports
 
@@ -2662,7 +2659,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\ntd {\n  box-sizing: border-box;\n  text-align: center;\n  border-bottom: 1px solid #c3dbd8;\n  padding: 5px;\n}\n", ""]);
+exports.push([module.i, "\ntd {\n  box-sizing: border-box;\n  text-align: center;\n  border-bottom: 1px solid #c3dbd8;\n  padding: 5px;\n  color: #354949;\n  font-size: 16px;\n}\n", ""]);
 
 // exports
 
@@ -2676,7 +2673,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, "\n.m-input {\n  width: 200px;\n}\n.m-text {\n  width: 100%;\n  height: 40px;\n  padding: 0px 10px;\n  border-radius: 4px;\n  font-size: 16px;\n  box-sizing: border-box;\n  border: 1px solid #c3dbd8;\n  color: #1f2d2d;\n  outline: none;\n}\n.m-text:focus {\n    color: #354949;\n    border-color: #1bbc9b;\n}\n.m-text:focus + .m-message {\n      color: #1bbc9b;\n}\n.m-label {\n  display: block;\n  font-weight: bold;\n  width: 100%;\n  height: 30px;\n  text-indent: 2px;\n}\n.m-message {\n  margin: 2px 0px 0px 0px;\n  text-indent: 2px;\n  color: #c3dbd8;\n}\n", ""]);
+exports.push([module.i, "\n.m-input {\n  width: 200px;\n}\n.m-text {\n  width: 100%;\n  height: 40px;\n  padding: 0px 10px;\n  border-radius: 4px;\n  font-size: 16px;\n  box-sizing: border-box;\n  border: 1px solid #c3dbd8;\n  color: #1f2d2d;\n  outline: none;\n}\n.m-text:focus {\n    color: #354949;\n    border-color: #1bbc9b;\n}\n.m-text:focus + .m-message {\n      color: #1bbc9b;\n}\n.m-text::placeholder {\n    color: #c3dbd8;\n}\n.m-label {\n  display: block;\n  font-weight: bold;\n  width: 100%;\n  height: 30px;\n  text-indent: 2px;\n  font-size: 16px;\n}\n.m-message {\n  margin: 2px 0px 0px 0px;\n  text-indent: 2px;\n  color: #c3dbd8;\n  font-size: 14px;\n}\n", ""]);
 
 // exports
 
