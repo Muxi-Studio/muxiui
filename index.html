@@ -193,6 +193,10 @@
                 <li v-bind:class="type === 'datepicker' ? 'active':null" @click="switchType('datepicker')">DatePicker</li>
                 <li v-bind:class="type === 'menu' ? 'active':null" @click="switchType('menu')">Menu</li>
                 <li v-bind:class="type === 'table' ? 'active':null" @click="switchType('table')">Table</li>
+                <li v-bind:class="type === 'pager' ? 'active':null" @click="switchType('pager')">Pager</li>
+                <li v-bind:class="type === 'select' ? 'active':null" @click="switchType('select')">Select</li>
+                <li v-bind:class="type === 'switch' ? 'active':null" @click="switchType('switch')">Switch</li>
+                <li v-bind:class="type === 'tooltip' ? 'active':null" @click="switchType('tooltip')">Tooltip</li>
             </nav>
             <!-- <m-row>
               <m-col :span="6">
@@ -212,7 +216,7 @@
                 <menu-demo v-else-if="type === 'menu'"></menu-demo>
                 <table-demo v-else-if="type === 'table'"></table-demo>
                 <div v-else>
-                    Not A/B/C
+                    Wating for development
                 </div>
             </content>
             <footer>Built with Vuejs and 💚. Designed by MuxiUED. 2014-2017 <img src="http://wx3.sinaimg.cn/large/64c45edcgy1fkeeosrsnhj20au04s74t.jpg" style="width:40px; display:inline-block;vertical-align:-4px"/></footer>
@@ -345,7 +349,9 @@
                 </m-table-col>
             </m-table>
     </div>
-            <div class="section">TextArea</div>
+            <div class="title">
+                <p>TextArea</p>
+            </div>
             <m-textarea placeholder="请输入一段关于..." v-model="textarea_two" :message="textmessage"></m-textarea>
             <div class="section">Code</div>
             <pre class="html" v-html="textarea_html" v-highlight></pre>
@@ -379,18 +385,60 @@
     </script>
     <script type="text/x-template" id="radioDemo">
         <div>
-            <h3>Radio</h3>
-            <m-radio v-model="radio" label="1"></m-radio>
-            <m-radio v-model="radio" label="2"></m-radio>
-            <p>
-                <m-radio v-model="radio" label="3"></m-radio>
-            </p>
-            <p>Code:</p>
-            <p>
-                <pre>
-                    <code class="html" v-html="html"></code>
-                </pre>
-            </p>
+            <div class="title" style="margin-bottom:20px">
+                <p>Radio</p>
+            </div>
+            <m-radio v-model="radio" label="0">男</m-radio>
+            <m-radio v-model="radio" label="1">女</m-radio>
+             <div style="margin-top:20px">性别：{{radio == "0" ? "男": "女"}}</div>
+             <div class="section">Code</div>
+             <pre class="html" v-html="html" v-highlight></pre>
+             <div class="section">API</div>
+             <div>
+                <m-table
+                :data="apiInfo">
+                    <m-table-col
+                    prop="prop"
+                    label="Property"
+                    width="180">
+                    </m-table-col>
+                    <m-table-col
+                    prop="type"
+                    label="Type"
+                    width="380">
+                    </m-table-col>
+                    <m-table-col
+                    prop="description"
+                    label="Description"
+                    width="100">
+                    </m-table-col>
+                    <m-table-col
+                    prop="default"
+                    label="Default"
+                    width="200">
+                    </m-table-col>
+                </m-table>
+        </div>
+        <div class="section">Events</div> 
+        <div>
+            <m-table
+            :data="eventInfo">
+                <m-table-col
+                prop="name"
+                label="Event Name">
+                </m-table-col>
+                <m-table-col
+                prop="description"
+                label="Description"
+                width="100">
+                </m-table-col>
+                <m-table-col
+                prop="params"
+                label="Paramaters"
+                width="200">
+                </m-table-col>
+            </m-table>
+    </div>
         </div>
     </script>
     <script type="text/x-template" id="checkboxDemo">
@@ -435,6 +483,9 @@
     </script>
     <script type="text/x-template" id="tableDemo">
         <div>
+            <div class="title" style="margin-bottom:20px">
+              <p>Table</p>
+            </div>
             <m-table
             :data="table">
                 <m-table-col
@@ -466,6 +517,11 @@
                   </template>
                 </m-table-col>
             </m-table>
+            <div class="section">Code</div>
+            <pre class="html" v-html="html" v-highlight></pre>
+            <div class="section">Data</div>
+            <pre class="javascript" v-html="data" v-highlight></pre>
+            <div class="section">API</div>
         </div>
     </script>
     <script src="./lib/vue.js"></script>
@@ -626,16 +682,40 @@
         data: function() {
             const html =
                 `
-<h3>Radio</h3>
-<m-radio v-model="radio" label="1">1</m-radio>
-<m-radio v-model="radio" label="2">2</m-radio>
-<p>
-    <m-radio v-model="radio" label="3">3</m-radio>
-</p>
+<m-radio v-model="radio" label="0">男</m-radio>
+<m-radio v-model="radio" label="1">女</m-radio>
+<div>性别：{{radio == "0" ? "男": "女"}}</div>
                     `
             return {
-                radio:'2',
+                radio:'0',
                 html: escapeHtml(html),
+                apiInfo: [
+                    {
+                        prop: "placeholder",
+                        type: "string",
+                        description: "Placeholder of input.",
+                        default: "/"
+                    },
+                    {
+                        prop: "label",
+                        type: "string",
+                        description: "The label text displayed on top of the input.",
+                        default: "/"
+                    },
+                    {
+                        prop: "message",
+                        type: "string",
+                        description: "The message displayed below the input.",
+                        default: "/"
+                    }
+                ],
+                eventInfo: [
+                    {
+                        name: "blur",
+                        description: "On blur event.",
+                        params: "/"
+                    }
+                ]
             }
         },
         methods: {
@@ -718,8 +798,69 @@
         data: function() {
             const html =
                 `
+<m-table:data="table">
+    <m-table-col
+    prop="kind"
+    label="分类"
+    width="180">
+    </m-table-col>
+    <m-table-col
+    prop="title"
+    label="标题"
+    width="380">
+    </m-table-col>
+    <m-table-col
+    prop="author"
+    label="作者"
+    width="100">
+    </m-table-col>
+    <m-table-col
+    prop="likes"
+    label="浏览量"
+    width="200">
+    </m-table-col>
+    <m-table-col
+    label="操作"
+    prop="active"
+    width="200">
+        <template scope="row">
+            <m-button type="error" :on-click="onclick.bind(this, row.index)">Delete</m-button>
+        </template>
+    </m-table-col>
+</m-table>
                     `    
+
+            const data = 
+              `
+table:[{
+    id:1,
+    kind:"图集",
+    title: "图集· 日光倾城",
+    author: "Amanda",
+    likes: 190
+},{
+    id:2,
+    kind:"图集",
+    title: "图集·军训，再见",
+    author: "Rose",
+    likes: 18
+},{
+    id:3,
+    kind:"水墨",
+    title: "乐在桂花节",
+    author: "Elegenthus",
+    likes: 189
+},{
+    id:4,
+    kind:"新闻",
+    title: "关于实施校园网运营服务模式改革相关情况的说明",
+    author: "Cruyun",
+    likes: 1001
+}]
+              `
             return {
+                html: escapeHtml(html),
+                data: data,
                 table:[{
                     id:1,
                     kind:"图集",
