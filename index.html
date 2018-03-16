@@ -215,6 +215,7 @@
                 <datepicker-demo v-else-if="type === 'datepicker'"></datepicker-demo>
                 <menu-demo v-else-if="type === 'menu'"></menu-demo>
                 <table-demo v-else-if="type === 'table'"></table-demo>
+                <select-demo v-else-if="type === 'select'"></select-demo>
                 <div v-else>
                     Wating for development
                 </div>
@@ -512,9 +513,9 @@
                 label="操作"
                 prop="active"
                 width="200">
-                  <template scope="row">
-                      <m-button type="error" :on-click="onclick.bind(this, row.index)">Delete</m-button>
-                  </template>
+                    <template scope="row">
+                        <m-button type="error" :on-click="onclick.bind(this, row.index)">Delete</m-button>
+                    </template>
                 </m-table-col>
             </m-table>
             <div class="section">Code</div>
@@ -524,10 +525,22 @@
             <div class="section">API</div>
         </div>
     </script>
+    <script type="text/x-template" id="selectDemo">
+        <div>
+            <m-select v-model="value" v-on:onchange="change" name="first">
+                <m-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+                </m-option>
+            </m-select>
+        </div>
+    </script>
     <script src="./lib/vue.js"></script>
     
     <!-- use this during local development -->
-    <!-- <script src="http://localhost:9000/dist/main.js"></script>
+<!--     <script src="http://localhost:9000/dist/main.js"></script>
     <script src="http://localhost:9000/dist/style.js"></script> -->
    
     <!-- do not use this during local development, this is used for gh-pages
@@ -788,6 +801,42 @@
             }
         }
     })
+    const selectDemo = Vue.extend({
+        template: "#selectDemo",
+        data: function() {
+            const html =
+                `
+<h3>Select</h3><p>
+                    `    
+            return {
+                options: [{
+                    value: '1',
+                    label: '桂香园'
+                }, {
+                    value: '2',
+                    label: '东一'
+                }, {
+                    value: '3',
+                    label: '学子'
+                }, {
+                    value: '4',
+                    label: '东二'
+                }, {
+                    value: '5',
+                    label: '沁园春'
+                }, {
+                    value: '6',
+                    label: '麦当劳'
+                }],
+                value: ''
+            }       
+        },
+        methods:{
+            change:function(){
+                console.log("changed! " + this.value)
+            },
+        }
+    })
     const tableDemo = Vue.extend({
         template: "#tableDemo",
          methods: {
@@ -912,6 +961,7 @@ table:[{
             "datepicker-demo": datepickerDemo,
             "menu-demo": menuDemo,
             "table-demo": tableDemo,
+            "select-demo": selectDemo,
         }
     })
     </script>
