@@ -3,163 +3,200 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>MuxiUI-A UI framework for developing  mannagement system, build by MFE</title>
+    <title>MuxiUI-A UI framework for developing mannagement system, build by MFE</title>
     <link rel="stylesheet" href="./lib/default.min.css">
     <style>
         /* highlihgt style*/
+
         @font-face {
-  font-family: "Roboto Mono";
-  src: url("../lib/RobotoMono-Regular.ttf");
-}
+            font-family: "Roboto Mono";
+            src: url("../lib/RobotoMono-Regular.ttf");
+        }
+
         .hljs-tag {
-            color:#2973b7;
+            color: #2973b7;
         }
-        .hljs-string{
-            color:#1bbc9b;
+
+        .hljs-string {
+            color: #1bbc9b;
         }
+
         .hljs {
             max-width: 800px;
-            background-color:#f8f8f8;
+            background-color: #f8f8f8;
             font-family: "Roboto Mono", Monaco, courier, monospace;
             font-size: 0.8em;
-    -webkit-font-smoothing: antialiased;
-    padding: 1.2em 1.4em;
-    overflow: scroll;
+            -webkit-font-smoothing: antialiased;
+            padding: 1.2em 1.4em;
+            overflow: scroll;
         }
-     /* end highlihgt style*/
 
+        /* end highlihgt style*/
 
-     /* global style*/
-      html {
-        -webkit-font-smoothing: antialiased;
-        height: 100%;
-        font-family: Applied Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
-      }
-      body {
-          position: relative;
-          margin: 0;
-          height: 100%;
-      }
-      p, pre {
-          margin: 0;
-      }
-      /* end global style*/
+        /* global style*/
 
-      /* header style*/
-      header{
-        position: fixed;
-        display: flex;
-        width: 100%;
-        background: hsla(0,0%,100%,.6);
-        border-bottom: 1px solid #ddd;
-        padding: 0 15%;
-        height: 60px;
-        line-height: 60px;
-        box-sizing: border-box;
-        box-shadow: 0 1px 1px rgba(0,0,0,.08);
-        z-index: 1;
-      }
-      .logo{
-        width: 70px;
-        padding-top: 9px;
-        padding-left: 24px;
-      }
-      .logo img{
-          width:100%;
-          height: auto;
-      }
-      header nav{
-        display: flex;
-        flex: 1;
-        justify-content: flex-end;
-        font-weight: 300;
-      }
-      header nav .item {
-        color: #333;
-    padding: 0 12px 0 5px;
-    font-weight: 300;
-    position: relative;
-      }
-      header nav .item a{
-        color: #333;
-        text-decoration: none;
-      }
-      header nav .item-active:after{
-        content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    -webkit-transform: translate3d(0,2px,0);
-    transform: translate3d(0,2px,0);
-    background-color: #1bbc9b;
-      }
-       /* end header style*/
+        html {
+            -webkit-font-smoothing: antialiased;
+            height: 100%;
+            font-family: Applied Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+        }
 
-      /* main style*/
-      main{
-        position: relative;
-        display: flex;
-        width: 70%;
-        margin: 0 auto;
-        padding: 90px 0;
-        min-height: 100%;
-    box-sizing: border-box;
-      }
-      main nav {
-        width: 200px;
-        color: #333;
-        border-right: 1px solid #f2f2f2;
-      }
-      main nav li {
-        list-style: none;
-        display: block;
-        padding: 10px 25px;
-        min-width: 170px;
-        height: 38px;
-        color: #333;
-        text-decoration: none;
-        box-sizing: border-box;
-        font-weight: 300;
-        cursor: pointer;
-      }
-      main nav .active {
-        color: #1bbc9b;
-        border-right: 2px solid #1bbc9b;
-      }
-      main content {
-        flex: 1;
-        margin-left: 20px;
-      }
-      main .title {
-        padding-bottom: 10px;
-        color: #666;
-        line-height: 1.7;
-        font-size: 16px;  
-        border-bottom: 1px solid #f0f0f0;
-      }
-      main .title p{
-        line-height: 1.7;
-        font-size: 16px;  
-      }
-      main .section {
-          color:#666;
-          padding:20px 0px;
-          font-size: 15px;
-      }
-      /* end main style*/
+        body {
+            position: relative;
+            margin: 0;
+            height: 100%;
+        }
 
-      footer{
-          width:100%;
-          height: 30px;
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          text-align: center;
-          font-size:13px;
-      }
+        p,
+        pre {
+            margin: 0;
+        }
+
+        /* end global style*/
+
+        /* header style*/
+
+        header {
+            position: fixed;
+            display: flex;
+            width: 100%;
+            background: hsla(0, 0%, 100%, .6);
+            border-bottom: 1px solid #ddd;
+            padding: 0 15%;
+            height: 60px;
+            line-height: 60px;
+            box-sizing: border-box;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .08);
+            z-index: 1;
+        }
+
+        .logo {
+            width: 70px;
+            padding-top: 9px;
+            padding-left: 24px;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        header nav {
+            display: flex;
+            flex: 1;
+            justify-content: flex-end;
+            font-weight: 300;
+        }
+
+        header nav .item {
+            color: #333;
+            padding: 0 12px 0 5px;
+            font-weight: 300;
+            position: relative;
+        }
+
+        header nav .item a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        header nav .item-active:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            -webkit-transform: translate3d(0, 2px, 0);
+            transform: translate3d(0, 2px, 0);
+            background-color: #1bbc9b;
+        }
+
+        /* end header style*/
+
+        /* main style*/
+
+        main {
+            position: relative;
+            display: flex;
+            width: 70%;
+            margin: 0 auto;
+            padding: 90px 0;
+            min-height: 100%;
+            box-sizing: border-box;
+        }
+
+        main nav {
+            width: 200px;
+            color: #333;
+            border-right: 1px solid #f2f2f2;
+        }
+
+        main nav li {
+            list-style: none;
+            display: block;
+            padding: 10px 25px;
+            min-width: 170px;
+            height: 38px;
+            color: #333;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-weight: 300;
+            cursor: pointer;
+        }
+
+        main nav .active {
+            color: #1bbc9b;
+            border-right: 2px solid #1bbc9b;
+        }
+
+        main content {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        main .title {
+            padding-bottom: 10px;
+            color: #666;
+            line-height: 1.7;
+            font-size: 16px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        main .title p {
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        main .section {
+            color: #666;
+            padding: 20px 0px;
+            font-size: 15px;
+        }
+
+        /* end main style*/
+
+        footer {
+            width: 100%;
+            height: 30px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            text-align: center;
+            font-size: 13px;
+        }
+        .m-row{
+            margin:20px;
+        }
+        .content {
+            border-radius: 4px;
+            height: 30px;
+            background-color: #c3dbd8;
+            text-align: center;
+            line-height: 30px;
+            color: #354949;
+        }
     </style>
 </head>
 
@@ -197,16 +234,9 @@
                 <li v-bind:class="type === 'select' ? 'active':null" @click="switchType('select')">Select</li>
                 <li v-bind:class="type === 'switch' ? 'active':null" @click="switchType('switch')">Switch</li>
                 <li v-bind:class="type === 'tooltip' ? 'active':null" @click="switchType('tooltip')">Tooltip</li>
+                <li v-bind:class="type === 'layout' ? 'active':null" @click="switchType('layout')">Layout</li>
             </nav>
-            <!-- <m-row>
-              <m-col :span="6">
-                <div>50%</div>
-              </m-col>
-              <m-col :span="6">
-                <div>50%</div>
-              </m-col>
-            </m-row> -->
-           <content>
+            <content>
                 <button-demo v-if="type === 'button'"></button-demo>
                 <toast-demo v-else-if="type === 'toast'"></toast-demo>
                 <form-demo v-else-if="type === 'form'"></form-demo>
@@ -216,11 +246,16 @@
                 <menu-demo v-else-if="type === 'menu'"></menu-demo>
                 <table-demo v-else-if="type === 'table'"></table-demo>
                 <select-demo v-else-if="type === 'select'"></select-demo>
+                <switch-demo v-else-if="type === 'switch'"></switch-demo>
+                <layout-demo v-else-if="type === 'layout'"></layout-demo>
                 <div v-else>
                     Wating for development
                 </div>
             </content>
-            <footer>Built with Vuejs and 💚. Designed by MuxiUED. 2014-2017 <img src="http://wx3.sinaimg.cn/large/64c45edcgy1fkeeosrsnhj20au04s74t.jpg" style="width:40px; display:inline-block;vertical-align:-4px"/></footer>
+            <footer>Built with Vuejs and 💚. Designed by MuxiUED. 2014-2017
+                <img src="http://wx3.sinaimg.cn/large/64c45edcgy1fkeeosrsnhj20au04s74t.jpg"
+                    style="width:40px; display:inline-block;vertical-align:-4px" />
+            </footer>
         </main>
     </script>
     <script type="text/x-template" id="buttonDemo">
@@ -229,51 +264,38 @@
                 <p>Button</p>
             </div>
             <div style="width:380px; margin-top:20px;">
-                    <m-row>
-                        <m-col :span="3">
-                            <m-button :on-click="onclick">确认</m-button>
-                        </m-col>
-                        <m-col :span="3">
-                            <m-button type="error">错误</m-button>
-                        </m-col>
-                        <m-col :span="3">
-                            <m-button type="warning">警告</m-button>
-                        </m-col>
-                        <m-col :span="3">
-                            <m-button type="ghost">幽灵</m-button>
-                        </m-col>
-                    </m-row>
-                </div>
-            
+                <m-row>
+                    <m-col :span="6">
+                        <m-button :on-click="onclick">确认</m-button>
+                    </m-col>
+                    <m-col :span="6">
+                        <m-button type="error">错误</m-button>
+                    </m-col>
+                    <m-col :span="6">
+                        <m-button type="warning">警告</m-button>
+                    </m-col>
+                    <m-col :span="6">
+                        <m-button type="ghost">幽灵</m-button>
+                    </m-col>
+                </m-row>
+            </div>
+
             <div class="section">Code</div>
-                <pre class="html lang-html" v-html="html" v-highlight>
+            <pre class="html lang-html" v-html="html" v-highlight>
             </pre>
-            
+
             <div class="section">API</div>
             <div>
-                    <m-table
-                    :data="apiInfo">
-                        <m-table-col
-                        prop="prop"
-                        label="Property"
-                        width="180">
-                        </m-table-col>
-                        <m-table-col
-                        prop="type"
-                        label="Type"
-                        width="380">
-                        </m-table-col>
-                        <m-table-col
-                        prop="description"
-                        label="Description"
-                        width="100">
-                        </m-table-col>
-                        <m-table-col
-                        prop="default"
-                        label="Default"
-                        width="200">
-                        </m-table-col>
-                    </m-table>
+                <m-table :data="apiInfo">
+                    <m-table-col prop="prop" label="Property" width="180">
+                    </m-table-col>
+                    <m-table-col prop="type" label="Type" width="380">
+                    </m-table-col>
+                    <m-table-col prop="description" label="Description" width="100">
+                    </m-table-col>
+                    <m-table-col prop="default" label="Default" width="200">
+                    </m-table-col>
+                </m-table>
             </div>
         </div>
     </script>
@@ -294,7 +316,7 @@
                 <p>Input</p>
             </div>
             <div style="margin-top:20px;">
-                <m-input  label="姓名" v-on:onblur="onBlur(1)" v-model="text_name" :message="message_name"></m-input>
+                <m-input label="姓名" v-on:onblur="onBlur(1)" v-model="text_name" :message="message_name"></m-input>
             </div>
             <div style="margin:10px 0; font-size:14px">姓名：{{ text_name }}</div>
             <div class="title" style="height:1px;">
@@ -306,50 +328,28 @@
             <pre class="html" v-html="text_html" v-highlight></pre>
             <div class="section">API</div>
             <div>
-                <m-table
-                :data="inputApiInfo">
-                    <m-table-col
-                    prop="prop"
-                    label="Property"
-                    width="180">
+                <m-table :data="inputApiInfo">
+                    <m-table-col prop="prop" label="Property" width="180">
                     </m-table-col>
-                    <m-table-col
-                    prop="type"
-                    label="Type"
-                    width="380">
+                    <m-table-col prop="type" label="Type" width="380">
                     </m-table-col>
-                    <m-table-col
-                    prop="description"
-                    label="Description"
-                    width="100">
+                    <m-table-col prop="description" label="Description" width="100">
                     </m-table-col>
-                    <m-table-col
-                    prop="default"
-                    label="Default"
-                    width="200">
+                    <m-table-col prop="default" label="Default" width="200">
                     </m-table-col>
                 </m-table>
-        </div>
-        <div class="section">Events</div> 
-        <div>
-            <m-table
-            :data="inputEventInfo">
-                <m-table-col
-                prop="name"
-                label="Event Name">
-                </m-table-col>
-                <m-table-col
-                prop="description"
-                label="Description"
-                width="100">
-                </m-table-col>
-                <m-table-col
-                prop="params"
-                label="Paramaters"
-                width="200">
-                </m-table-col>
-            </m-table>
-    </div>
+            </div>
+            <div class="section">Events</div>
+            <div>
+                <m-table :data="inputEventInfo">
+                    <m-table-col prop="name" label="Event Name">
+                    </m-table-col>
+                    <m-table-col prop="description" label="Description" width="100">
+                    </m-table-col>
+                    <m-table-col prop="params" label="Paramaters" width="200">
+                    </m-table-col>
+                </m-table>
+            </div>
             <div class="title">
                 <p>TextArea</p>
             </div>
@@ -358,30 +358,17 @@
             <pre class="html" v-html="textarea_html" v-highlight></pre>
             <div class="section">API</div>
             <div>
-                <m-table
-                :data="textareaApiInfo">
-                    <m-table-col
-                    prop="prop"
-                    label="Property"
-                    width="180">
+                <m-table :data="textareaApiInfo">
+                    <m-table-col prop="prop" label="Property" width="180">
                     </m-table-col>
-                    <m-table-col
-                    prop="type"
-                    label="Type"
-                    width="380">
+                    <m-table-col prop="type" label="Type" width="380">
                     </m-table-col>
-                    <m-table-col
-                    prop="description"
-                    label="description"
-                    width="100">
+                    <m-table-col prop="description" label="description" width="100">
                     </m-table-col>
-                    <m-table-col
-                    prop="default"
-                    label="default"
-                    width="200">
+                    <m-table-col prop="default" label="default" width="200">
                     </m-table-col>
                 </m-table>
-        </div>
+            </div>
         </div>
     </script>
     <script type="text/x-template" id="radioDemo">
@@ -391,55 +378,33 @@
             </div>
             <m-radio v-model="radio" label="0">男</m-radio>
             <m-radio v-model="radio" label="1">女</m-radio>
-             <div style="margin-top:20px">性别：{{radio == "0" ? "男": "女"}}</div>
-             <div class="section">Code</div>
-             <pre class="html" v-html="html" v-highlight></pre>
-             <div class="section">API</div>
-             <div>
-                <m-table
-                :data="apiInfo">
-                    <m-table-col
-                    prop="prop"
-                    label="Property"
-                    width="180">
+            <div style="margin-top:20px">性别：{{radio == "0" ? "男": "女"}}</div>
+            <div class="section">Code</div>
+            <pre class="html" v-html="html" v-highlight></pre>
+            <div class="section">API</div>
+            <div>
+                <m-table :data="apiInfo">
+                    <m-table-col prop="prop" label="Property" width="180">
                     </m-table-col>
-                    <m-table-col
-                    prop="type"
-                    label="Type"
-                    width="380">
+                    <m-table-col prop="type" label="Type" width="380">
                     </m-table-col>
-                    <m-table-col
-                    prop="description"
-                    label="Description"
-                    width="100">
+                    <m-table-col prop="description" label="Description" width="100">
                     </m-table-col>
-                    <m-table-col
-                    prop="default"
-                    label="Default"
-                    width="200">
+                    <m-table-col prop="default" label="Default" width="200">
                     </m-table-col>
                 </m-table>
-        </div>
-        <div class="section">Events</div> 
-        <div>
-            <m-table
-            :data="eventInfo">
-                <m-table-col
-                prop="name"
-                label="Event Name">
-                </m-table-col>
-                <m-table-col
-                prop="description"
-                label="Description"
-                width="100">
-                </m-table-col>
-                <m-table-col
-                prop="params"
-                label="Paramaters"
-                width="200">
-                </m-table-col>
-            </m-table>
-    </div>
+            </div>
+            <div class="section">Events</div>
+            <div>
+                <m-table :data="eventInfo">
+                    <m-table-col prop="name" label="Event Name">
+                    </m-table-col>
+                    <m-table-col prop="description" label="Description" width="100">
+                    </m-table-col>
+                    <m-table-col prop="params" label="Paramaters" width="200">
+                    </m-table-col>
+                </m-table>
+            </div>
         </div>
     </script>
     <script type="text/x-template" id="checkboxDemo">
@@ -485,34 +450,18 @@
     <script type="text/x-template" id="tableDemo">
         <div>
             <div class="title" style="margin-bottom:20px">
-              <p>Table</p>
+                <p>Table</p>
             </div>
-            <m-table
-            :data="table">
-                <m-table-col
-                prop="kind"
-                label="分类"
-                width="180">
+            <m-table :data="table">
+                <m-table-col prop="kind" label="分类" width="20%">
                 </m-table-col>
-                <m-table-col
-                prop="title"
-                label="标题"
-                width="380">
+                <m-table-col prop="title" label="标题" width="30%">
                 </m-table-col>
-                <m-table-col
-                prop="author"
-                label="作者"
-                width="100">
+                <m-table-col prop="author" label="作者" width="20%">
                 </m-table-col>
-                <m-table-col
-                prop="likes"
-                label="浏览量"
-                width="200">
+                <m-table-col prop="likes" label="浏览量" width="10%">
                 </m-table-col>
-                <m-table-col
-                label="操作"
-                prop="active"
-                width="200">
+                <m-table-col label="操作" prop="active" width="20%">
                     <template scope="row">
                         <m-button type="error" :on-click="onclick.bind(this, row.index)">Delete</m-button>
                     </template>
@@ -528,221 +477,312 @@
     <script type="text/x-template" id="selectDemo">
         <div>
             <m-select v-model="value" v-on:onchange="change" name="first">
-                <m-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
+                <m-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                 </m-option>
             </m-select>
         </div>
     </script>
+    <script type="text/x-template" id="switchDemo">
+        <div>
+            <m-switch v-model="value" inactive="left" active="right"></m-switch>
+        </div>
+    </script>
+    <script type="text/x-template" id="layoutDemo">
+        <div>
+            <div class="title" style="margin-bottom:20px">
+                <p>Layout</p>
+            </div>            
+            <div>
+                <h4>基础布局</h4>
+                <m-row>
+                    <m-col :span="8">
+                        <div class="content">8/24</div>
+                    </m-col>
+                    <m-col :span="8">
+                        <div class="content">8/24</div>
+                    </m-col>
+                    <m-col :span="8">
+                        <div class="content">8/24</div>
+                    </m-col>
+                </m-row>
+                <div class="section">Code</div>
+                <pre class="html lang-html" v-html="html" v-highlight></pre>
+                <h4>间隔布局</h4>
+                <m-row :gutter="20">
+                    <m-col :span="6">
+                        <div class="content">6/24</div>
+                    </m-col>
+                    <m-col :span="6">
+                        <div class="content">6/24</div>
+                    </m-col>
+                    <m-col :span="6">
+                        <div class="content">6/24</div>
+                    </m-col>
+                    <m-col :span="6">
+                        <div class="content">6/24</div>
+                    </m-col>
+                </m-row>
+                <div class="section">Code</div>
+                <pre class="html lang-html" v-html="gutter" v-highlight></pre>
+                <h4>Flex布局</h4>
+                <div class="section">justify-content</div>
+                <m-row :gutter="10" justify="flex-start">
+                        <m-col :span="6">
+                            <div class="content">6/24</div>
+                        </m-col>
+                        <m-col :span="6">
+                            <div class="content">6/24</div>
+                        </m-col>
+                </m-row>
+                <m-row :gutter="10" justify="flex-end">
+                    <m-col :span="6">
+                        <div class="content">6/24</div>
+                    </m-col>
+                    <m-col :span="6">
+                        <div class="content">6/24</div>
+                    </m-col>
+                </m-row>
+                <m-row :gutter="10" justify="space-between">
+                        <m-col :span="6">
+                            <div class="content">6/24</div>
+                        </m-col>
+                        <m-col :span="6">
+                            <div class="content">6/24</div>
+                        </m-col>
+                        <m-col :span="6">
+                                <div class="content">6/24</div>
+                        </m-col>
+                </m-row>
+                <div class="section">Code</div>
+                <pre class="html lang-html" v-html="justify" v-highlight></pre>
+                <div class="section">flex-grow</div>
+                <m-row :gutter="10">
+                    <m-col :span="6" :flexGrow="2">
+                        <div class="content">grow item</div>
+                    </m-col>
+                    <m-col :span="6">
+                        <div class="content">6/24</div>
+                    </m-col>
+                    <m-col :span="6">
+                        <div class="content">6/24</div>
+                    </m-col>
+                </m-row>
+                <div class="section">Code</div>
+                <pre class="html lang-html" v-html="grow" v-highlight></pre>
+                <div class="section">API</div>
+                <div>
+                    <m-table :data="layoutApiInfo">
+                        <m-table-col prop="prop" label="Property" width="100">
+                        </m-table-col>
+                        <m-table-col prop="type" label="Type" width="100">
+                        </m-table-col>
+                        <m-table-col prop="description" label="Description" width="200">
+                        </m-table-col>
+                        <m-table-col prop="default" label="Default" width="100">
+                        </m-table-col>
+                    </m-table>
+                </div>
+            </div>
+        </div>
+    </script>
     <script src="./lib/vue.js"></script>
-    
+
     <!-- use this during local development -->
-<!--     <script src="http://localhost:9000/dist/main.js"></script>
-    <script src="http://localhost:9000/dist/style.js"></script> -->
-   
+    <script src="http://localhost:9000/dist/main.js"></script>
+    <script src="http://localhost:9000/dist/style.js"></script>
+
     <!-- do not use this during local development, this is used for gh-pages
       -->
-	 <script src="./dist/main.js"></script>
-	 <script src="./dist/style.js"></script>
+    <!-- <script src="./dist/main.js"></script>
+	 <script src="./dist/style.js"></script> -->
 
     <script>
-    Vue.directive('highlight', {
-        inserted: function(el) {
-            hljs.highlightBlock(el);
-        }
-    })
+        Vue.directive('highlight', {
+            inserted: function (el) {
+                hljs.highlightBlock(el);
+            }
+        })
 
-    function escapeHtml(unsafe) {
-        return unsafe
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-    }
-    //initialzie
-    const buttonDemo = Vue.extend({
-        template: "#buttonDemo",
-        data: function() {
-            const html =
-                `
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+        //initialzie
+        const buttonDemo = Vue.extend({
+            template: "#buttonDemo",
+            data: function () {
+                const html =
+                    `
 <m-button :on-click="onclick">确认</m-button>
 <m-button type="error">错误</m-button>
 <m-button type="warning">警告</m-button>
 <m-button type="ghost">幽灵</m-button>
 					`
-            return {
-                apiInfo: [
-                    {
-                        prop: "type",
-                        type: "string",
-                        description: "Type of button. Accepted values: primary/warning/error/ghost.",
-                        default: "primary"
-                    },
-                    {
-                        prop: "on-click",
-                        type: "function",
-                        description: "Button click callback.",
-                        default: "/"
-                    }
-                ],
-                html: escapeHtml(html),
-            }
-        },
-        methods: {
-            onclick: function() {
-                console.log("clicked")
-            }
-        }
-    })
-
-    const toastDemo = Vue.extend({
-        template: "#toastDemo",
-        data: function() {
-            return {
-                show: false
-            }
-        },
-        methods: {
-            onclick: function(num) {
-                console.log("clicked")
+                return {
+                    apiInfo: [{
+                            prop: "type",
+                            type: "string",
+                            description: "Type of button. Accepted values: primary/warning/error/ghost.",
+                            default: "primary"
+                        },
+                        {
+                            prop: "on-click",
+                            type: "function",
+                            description: "Button click callback.",
+                            default: "/"
+                        }
+                    ],
+                    html: escapeHtml(html),
+                }
             },
-            toggleToast: function() {
-                this.show = !this.show
+            methods: {
+                onclick: function () {
+                    console.log("clicked")
+                }
             }
-        }
-    })
+        })
 
-    const formDemo = Vue.extend({
-        template: "#formDemo",
-        data: function() {
-            const text_html =
-                `
+        const toastDemo = Vue.extend({
+            template: "#toastDemo",
+            data: function () {
+                return {
+                    show: false
+                }
+            },
+            methods: {
+                onclick: function (num) {
+                    console.log("clicked")
+                },
+                toggleToast: function () {
+                    this.show = !this.show
+                }
+            }
+        })
+
+        const formDemo = Vue.extend({
+            template: "#formDemo",
+            data: function () {
+                const text_html =
+                    `
 <m-input placeholder="请输入姓名" label="姓名" v-on:onBlur="onBlur" v-model="text_name" :message="我是message"></m-input>
 <div>姓名：{{ text_name }}</div>
 <m-input placeholder="请输入学号" label="学号" v-model="text_num"></m-input>
                     `
-            const textarea_html =
-                `
+                const textarea_html =
+                    `
 <h3>TextArea</h3>
 <m-textarea placeholder="请输入一段关于..." v-model="textarea_one"></m-textarea>
 <m-textarea v-model="textarea_two" :message="textmessage"></m-textarea>
                     `
-            return {
-                text_name:"刘指导",
-                message_name:"我是message",
-                text_num:"2013211387",
-                text_course:"",
-                textarea_one:"textarea_one",
-                textarea_two:"",
-                textmessage:"message for textarea",
-                text_html: escapeHtml(text_html),
-                textarea_html: escapeHtml(textarea_html),
-                inputApiInfo: [
-                    {
-                        prop: "placeholder",
-                        type: "string",
-                        description: "Placeholder of input.",
-                        default: "/"
-                    },
-                    {
-                        prop: "label",
-                        type: "string",
-                        description: "The label text displayed on top of the input.",
-                        default: "/"
-                    },
-                    {
-                        prop: "message",
-                        type: "string",
-                        description: "The message displayed below the input.",
-                        default: "/"
-                    }
-                ],
-                inputEventInfo: [
-                    {
+                return {
+                    text_name: "刘指导",
+                    message_name: "我是message",
+                    text_num: "2013211387",
+                    text_course: "",
+                    textarea_one: "textarea_one",
+                    textarea_two: "",
+                    textmessage: "message for textarea",
+                    text_html: escapeHtml(text_html),
+                    textarea_html: escapeHtml(textarea_html),
+                    inputApiInfo: [{
+                            prop: "placeholder",
+                            type: "string",
+                            description: "Placeholder of input.",
+                            default: "/"
+                        },
+                        {
+                            prop: "label",
+                            type: "string",
+                            description: "The label text displayed on top of the input.",
+                            default: "/"
+                        },
+                        {
+                            prop: "message",
+                            type: "string",
+                            description: "The message displayed below the input.",
+                            default: "/"
+                        }
+                    ],
+                    inputEventInfo: [{
                         name: "blur",
                         description: "On blur event.",
                         params: "/"
-                    }
-                ],
-                textareaApiInfo: [
-                {
-                    prop: "placeholder",
-                    type: "string",
-                    description: "Placeholder of input.",
-                    default: "/"
-                },
-                {
-                    prop: "message",
-                    type: "string",
-                    description: "The message displayed below the input.",
-                    default: "/"
+                    }],
+                    textareaApiInfo: [{
+                            prop: "placeholder",
+                            type: "string",
+                            description: "Placeholder of input.",
+                            default: "/"
+                        },
+                        {
+                            prop: "message",
+                            type: "string",
+                            description: "The message displayed below the input.",
+                            default: "/"
+                        }
+                    ]
                 }
-                ]
+            },
+            methods: {
+                onBlur: function (num) {
+                    console.log(num)
+                }
             }
-        },
-        methods: {
-            onBlur: function(num) {
-                console.log(num)
-            }
-        }
-    })
-    const radioDemo = Vue.extend({
-        template: "#radioDemo",
-        data: function() {
-            const html =
-                `
+        })
+        const radioDemo = Vue.extend({
+            template: "#radioDemo",
+            data: function () {
+                const html =
+                    `
 <m-radio v-model="radio" label="0">男</m-radio>
 <m-radio v-model="radio" label="1">女</m-radio>
 <div>性别：{{radio == "0" ? "男": "女"}}</div>
                     `
-            return {
-                radio:'0',
-                html: escapeHtml(html),
-                apiInfo: [
-                    {
-                        prop: "placeholder",
-                        type: "string",
-                        description: "Placeholder of input.",
-                        default: "/"
-                    },
-                    {
-                        prop: "label",
-                        type: "string",
-                        description: "The label text displayed on top of the input.",
-                        default: "/"
-                    },
-                    {
-                        prop: "message",
-                        type: "string",
-                        description: "The message displayed below the input.",
-                        default: "/"
-                    }
-                ],
-                eventInfo: [
-                    {
+                return {
+                    radio: '0',
+                    html: escapeHtml(html),
+                    apiInfo: [{
+                            prop: "placeholder",
+                            type: "string",
+                            description: "Placeholder of input.",
+                            default: "/"
+                        },
+                        {
+                            prop: "label",
+                            type: "string",
+                            description: "The label text displayed on top of the input.",
+                            default: "/"
+                        },
+                        {
+                            prop: "message",
+                            type: "string",
+                            description: "The message displayed below the input.",
+                            default: "/"
+                        }
+                    ],
+                    eventInfo: [{
                         name: "blur",
                         description: "On blur event.",
                         params: "/"
-                    }
-                ]
+                    }]
+                }
+            },
+            methods: {
+                onclick: function () {
+                    console.log("clicked")
+                }
             }
-        },
-        methods: {
-            onclick: function() {
-                console.log("clicked")
-            }
-        }
-    })
+        })
 
-    const checkboxDemo = Vue.extend({
-        template: "#checkboxDemo",
-        data: function() {
-            const html =
-                `
+        const checkboxDemo = Vue.extend({
+            template: "#checkboxDemo",
+            data: function () {
+                const html =
+                    `
 <h3>Checkbox</h3>
 <m-checkbox-group v-model="checkbox">
     <m-checkbox label="1"></m-checkbox>
@@ -750,137 +790,137 @@
     <m-checkbox label="3"></m-checkbox>
 </m-checkbox-group>
                     `
-            return {
-                checkbox: ["1"],
-                html: escapeHtml(html),
+                return {
+                    checkbox: ["1"],
+                    html: escapeHtml(html),
+                }
+            },
+            methods: {
+                onclick: function () {
+                    console.log("clicked")
+                }
             }
-        },
-        methods: {
-            onclick: function() {
-                console.log("clicked")
-            }
-        }
-    })
-    const datepickerDemo = Vue.extend({
-        template: "#datePickerDemo",
-        data: function() {
-            const html =
-                `
+        })
+        const datepickerDemo = Vue.extend({
+            template: "#datePickerDemo",
+            data: function () {
+                const html =
+                    `
 <h3>DatePicker</h3><p>
 <m-datepicker></m-datepicker>
-                    `    
-            return {
-                date:"2016-07-10"
-            }        
-        }
-    })
-    const menuDemo = Vue.extend({
-        template: "#menuDemo",
-        data: function() {
-            const html =
-                `
+                    `
+                return {
+                    date: "2016-07-10"
+                }
+            }
+        })
+        const menuDemo = Vue.extend({
+            template: "#menuDemo",
+            data: function () {
+                const html =
+                    `
 <h3>DatePicker</h3><p>
 <m-menu></m-menu>
-                    `    
-            return {
-                date:"2016-07-10"
-            }        
-        },
-        methods:{
-            open:function(index){
-                console.log("open index " +index)
+                    `
+                return {
+                    date: "2016-07-10"
+                }
             },
-            close:function(index){
-                console.log("close index " +index)
-            },
-            selectSubmenu: function(index){
-                console.log(index)
-            },
-            selectItem:function(index){
-                console.log(index)
+            methods: {
+                open: function (index) {
+                    console.log("open index " + index)
+                },
+                close: function (index) {
+                    console.log("close index " + index)
+                },
+                selectSubmenu: function (index) {
+                    console.log(index)
+                },
+                selectItem: function (index) {
+                    console.log(index)
+                }
             }
-        }
-    })
-    const selectDemo = Vue.extend({
-        template: "#selectDemo",
-        data: function() {
-            const html =
-                `
+        })
+        const selectDemo = Vue.extend({
+            template: "#selectDemo",
+            data: function () {
+                const html =
+                    `
 <h3>Select</h3><p>
-                    `    
-            return {
-                options: [{
-                    value: '1',
-                    label: '桂香园'
-                }, {
-                    value: '2',
-                    label: '东一'
-                }, {
-                    value: '3',
-                    label: '学子'
-                }, {
-                    value: '4',
-                    label: '东二'
-                }, {
-                    value: '5',
-                    label: '沁园春'
-                }, {
-                    value: '6',
-                    label: '麦当劳'
-                }],
-                value: ''
-            }       
-        },
-        methods:{
-            change:function(){
-                console.log("changed! " + this.value)
+                    `
+                return {
+                    options: [{
+                        value: '1',
+                        label: '桂香园'
+                    }, {
+                        value: '2',
+                        label: '东一'
+                    }, {
+                        value: '3',
+                        label: '学子'
+                    }, {
+                        value: '4',
+                        label: '东二'
+                    }, {
+                        value: '5',
+                        label: '沁园春'
+                    }, {
+                        value: '6',
+                        label: '麦当劳'
+                    }],
+                    value: ''
+                }
             },
-        }
-    })
-    const tableDemo = Vue.extend({
-        template: "#tableDemo",
-         methods: {
-        onclick: (id) => {
-            console.log(id)
-        }
-    },
-        data: function() {
-            const html =
-                `
+            methods: {
+                change: function () {
+                    console.log("changed! " + this.value)
+                },
+            }
+        })
+        const tableDemo = Vue.extend({
+            template: "#tableDemo",
+            methods: {
+                onclick: (id) => {
+                    console.log(id)
+                }
+            },
+            data: function () {
+                const html =
+                    `
 <m-table:data="table">
     <m-table-col
     prop="kind"
     label="分类"
-    width="180">
+    width="15%">
     </m-table-col>
     <m-table-col
     prop="title"
     label="标题"
-    width="380">
+    width="30%">
     </m-table-col>
     <m-table-col
     prop="author"
     label="作者"
-    width="100">
+    width="20%">
     </m-table-col>
     <m-table-col
     prop="likes"
     label="浏览量"
-    width="200">
+    width="10%">
     </m-table-col>
     <m-table-col
     label="操作"
     prop="active"
-    width="200">
+    width="20%">
         <template scope="row">
             <m-button type="error" :on-click="onclick.bind(this, row.index)">Delete</m-button>
         </template>
     </m-table-col>
 </m-table>
-                    `    
+                    `
 
-            const data = 
-              `
+                const data =
+                    `
 table:[{
     id:1,
     kind:"图集",
@@ -907,63 +947,205 @@ table:[{
     likes: 1001
 }]
               `
-            return {
-                html: escapeHtml(html),
-                data: data,
-                table:[{
-                    id:1,
-                    kind:"图集",
-                    title: "图集· 日光倾城",
-                    author: "Amanda",
-                    likes: 190
-                },{
-                    id:2,
-                    kind:"图集",
-                    title: "图集·军训，再见",
-                    author: "Rose",
-                    likes: 18
-                },{
-                    id:3,
-                    kind:"水墨",
-                    title: "乐在桂花节",
-                    author: "Elegenthus",
-                    likes: 189
-                },{
-                    id:4,
-                    kind:"新闻",
-                    title: "关于实施校园网运营服务模式改革相关情况的说明",
-                    author: "Cruyun",
-                    likes: 1001
-                }]
-            }        
-        }
-    })
-    const demo = new Vue({
-        el: ".app",
-        template: "#demo",
-        data: function() {
-            return {
-                type: "button"
+                return {
+                    html: escapeHtml(html),
+                    data: data,
+                    table: [{
+                        id: 1,
+                        kind: "图集",
+                        title: "图集· 日光倾城",
+                        author: "Amanda",
+                        likes: 190
+                    }, {
+                        id: 2,
+                        kind: "图集",
+                        title: "图集·军训，再见",
+                        author: "Rose",
+                        likes: 18
+                    }, {
+                        id: 3,
+                        kind: "水墨",
+                        title: "乐在桂花节",
+                        author: "Elegenthus",
+                        likes: 189
+                    }, {
+                        id: 4,
+                        kind: "新闻",
+                        title: "关于实施校园网运营服务模式改革相关情况的说明",
+                        author: "Cruyun",
+                        likes: 1001
+                    }]
+                }
             }
-        },
-        methods: {
-            switchType: function(type) {
-                this.type = type
-                console.log(type)
+        })
+        const switchDemo = Vue.extend({
+            template: "#switchDemo",
+            data: function () {
+                const html =
+                    `
+<h3>Switch</h3><p>
+                    `
+                return {
+                    value: "left"
+                }
+            },
+            methods: {
+                // change:function(){
+                //     console.log("changed! " + this.value)
+                // },
             }
-        },
-        components: {
-            "button-demo": buttonDemo,
-            "toast-demo": toastDemo,
-            "form-demo": formDemo,
-            "radio-demo": radioDemo,
-            "checkbox-demo": checkboxDemo,
-            "datepicker-demo": datepickerDemo,
-            "menu-demo": menuDemo,
-            "table-demo": tableDemo,
-            "select-demo": selectDemo,
-        }
-    })
+        })
+        const layoutDemo = Vue.extend({
+            template: "#layoutDemo",
+            data: function () {
+                const html =
+                    `
+<m-row>
+    <m-col :span="8">
+        <div class="content">8/24</div>
+    </m-col>
+    <m-col :span="8">
+        <div class="content">8/24</div>
+    </m-col>
+    <m-col :span="8">
+        <div class="content">8/24</div>
+    </m-col>
+</m-row>
+
+<style>
+    .content {
+        border-radius: 4px;
+        height: 30px;
+        background-color: #c3dbd8;
+        text-align: center;
+        line-height: 30px;
+        color: #354949;
+    }
+</style>
+                    `
+                const gutter = `
+<m-row :gutter="20">
+    <m-col :span="6">
+        <div class="content">6/24</div>
+    </m-col>
+    <m-col :span="6">
+        <div class="content">6/24</div>
+    </m-col>
+    <m-col :span="6">
+        <div class="content">6/24</div>
+    </m-col>
+    <m-col :span="6">
+        <div class="content">6/24</div>
+    </m-col>
+</m-row>              
+                `
+                const justify = `
+<m-row :gutter="10" justify="flex-start">
+    <m-col :span="6">
+        <div class="content">6/24</div>
+    </m-col>
+    <m-col :span="6">
+        <div class="content">6/24</div>
+    </m-col>
+</m-row>
+
+<m-row :gutter="10" justify="flex-end">
+    <m-col :span="6">
+        <div class="content">6/24</div>
+    </m-col>
+    <m-col :span="6">
+        <div class="content">6/24</div>
+    </m-col>
+</m-row>
+
+<m-row :gutter="10" justify="space-between">
+    <m-col :span="6">
+        <div class="content">6/24</div>
+    </m-col>
+    <m-col :span="6">
+        <div class="content">6/24</div>
+    </m-col>
+    <m-col :span="6">
+            <div class="content">6/24</div>
+    </m-col>
+</m-row>
+                `
+
+            const grow = `
+<m-row :gutter="10">
+    <m-col :span="6" :flexGrow="2">
+        <div class="content">grow item</div>
+    </m-col>
+    <m-col :span="6">
+        <div class="content">6/24</div>
+    </m-col>
+    <m-col :span="6">
+        <div class="content">6/24</div>
+    </m-col>
+</m-row>
+            `
+                return {
+                    html: escapeHtml(html),
+                    gutter: escapeHtml(gutter),
+                    justify: escapeHtml(justify),
+                    grow: escapeHtml(grow),
+                    value: "left",
+                    layoutApiInfo: [{
+                            prop: "gutter",
+                            type: "number",
+                            description: "Property of <m-row> component. Grid spacing",
+                            default: "0"
+                        },
+                        {
+                            prop: "justify",
+                            type: "string",
+                            description: "Property of <m-row> component. Horizontal alignment",
+                            default: "flex-start"
+                        },
+                        {
+                            prop: "span",
+                            type: "number",
+                            description: "Required property of <m-col> component.",
+                            default: "/"
+                        },
+                        {
+                            prop: "flexGrow",
+                            type: "string",
+                            description: "Property of <m-col> component. Same as flex-grow of flex layout",
+                            default: "0"
+                        }
+                    ]
+                }
+            },
+        })
+        const demo = new Vue({
+            el: ".app",
+            template: "#demo",
+            data: function () {
+                return {
+                    type: "button"
+                }
+            },
+            methods: {
+                switchType: function (type) {
+                    this.type = type
+                    console.log(type)
+                }
+            },
+            components: {
+                "button-demo": buttonDemo,
+                "toast-demo": toastDemo,
+                "form-demo": formDemo,
+                "radio-demo": radioDemo,
+                "checkbox-demo": checkboxDemo,
+                "datepicker-demo": datepickerDemo,
+                "menu-demo": menuDemo,
+                "table-demo": tableDemo,
+                "select-demo": selectDemo,
+                "switch-demo": switchDemo,
+                "layout-demo": layoutDemo
+            }
+        })
     </script>
 </body>
 
