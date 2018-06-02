@@ -394,57 +394,104 @@
                     </m-table-col>
                 </m-table>
             </div>
-            <div class="section">Events</div>
-            <div>
-                <m-table :data="eventInfo">
-                    <m-table-col prop="name" label="Event Name">
-                    </m-table-col>
-                    <m-table-col prop="description" label="Description" width="100">
-                    </m-table-col>
-                    <m-table-col prop="params" label="Paramaters" width="200">
-                    </m-table-col>
-                </m-table>
-            </div>
         </div>
     </script>
     <script type="text/x-template" id="checkboxDemo">
         <div>
-            <h3>Checkbox</h3>
+            <div class="title" style="margin-bottom:20px">
+                <p>Checkbox</p>
+            </div>
             <m-checkbox-group v-model="checkbox">
                 <m-checkbox label="1"></m-checkbox>
                 <m-checkbox label="2"></m-checkbox>
                 <m-checkbox label="3"></m-checkbox>
             </m-checkbox-group>
-            <p>Code:</p>
-            <p>
-                <pre>
-                    <code class="html" v-html="html"></code>
-                </pre>
-            </p>
+            <div style="margin-top:20px">Selected values: {{this.checkbox}}</div>
+            <div class="section">Code</div>
+            <pre class="html" v-html="html" v-highlight></pre>
+            <div class="section">API</div>
+            <div>
+                <m-table :data="apiInfo">
+                    <m-table-col prop="prop" label="Property" width="180">
+                    </m-table-col>
+                    <m-table-col prop="type" label="Type" width="380">
+                    </m-table-col>
+                    <m-table-col prop="description" label="Description" width="100">
+                    </m-table-col>
+                    <m-table-col prop="default" label="Default" width="200">
+                    </m-table-col>
+                </m-table>
+            </div>
         </div>
     </script>
     <script type="text/x-template" id="datePickerDemo">
         <div>
+            <div class="title" style="margin-bottom:20px">
+                <p>Datepicker</p>
+            </div>
             <m-datepicker v-model="date"></m-datepicker>
+            <div class="section">Code</div>
+            <pre class="html" v-html="html" v-highlight></pre>
         </div>
     </script>
     <script type="text/x-template" id="menuDemo">
         <div>
-            <m-menu trigger="hover">
-                <m-submenu label="a" index="1">
-                    <a slot="title">导航1</a>
-                    <m-menu-item label="b" index="1-1">导航1-1</m-menu-item>
-                    <m-submenu label="b" index="1-2">
-                        <m-menu-item label="a" index="1-2-1">导航1-1</m-menu-item>
-                        <m-menu-item label="c" index="1-2-2">导航1-2</m-menu-item>
+            <div class="title" style="margin-bottom:20px">
+                <p>Menu</p>
+            </div>
+            <div class="section">Hover Mode</div>
+            <div>
+                <m-menu trigger="hover">
+                    <m-submenu label="a" index="1">
+                        <a slot="title">导航1</a>
+                        <m-menu-item label="b" index="1-1">导航1-1</m-menu-item>
+                        <m-submenu label="b" index="1-2">
+                            <m-menu-item label="a" index="1-2-1">导航1-1</m-menu-item>
+                            <m-menu-item label="c" index="1-2-2">导航1-2</m-menu-item>
+                        </m-submenu>
                     </m-submenu>
-                </m-submenu>
-                <m-submenu label="b" index="2" @open="open" @close="close" @select="selectSubmenu">
-                    <m-menu-item label="b" index="2-1" @select="selectItem">导航2-1</m-menu-item>
-                    <m-menu-item label="c" index="2-2">导航2-2</m-menu-item>
-                </m-submenu>
-                <m-menu-item label="c" index="3">导航3</m-menu-item>
-            </m-menu>
+                    <m-submenu label="b" index="2" @open="open" @close="close" @select="selectSubmenu">
+                        <m-menu-item label="b" index="2-1" @select="selectItem">导航2-1</m-menu-item>
+                        <m-menu-item label="c" index="2-2">导航2-2</m-menu-item>
+                    </m-submenu>
+                    <m-menu-item label="c" index="3">导航3</m-menu-item>
+                </m-menu>
+            </div>
+            <div class="section">Code</div>
+            <pre class="html" v-html="hover" v-highlight></pre>
+            <div class="section">Click Mode</div>
+            <div>
+                <m-menu trigger="click">
+                    <m-submenu label="a" index="1">
+                        <a slot="title">导航1</a>
+                        <m-menu-item label="b" index="1-1">导航1-1</m-menu-item>
+                        <m-submenu label="b" index="1-2">
+                            <m-menu-item label="a" index="1-2-1">导航1-1</m-menu-item>
+                            <m-menu-item label="c" index="1-2-2">导航1-2</m-menu-item>
+                        </m-submenu>
+                    </m-submenu>
+                    <m-submenu label="b" index="2" @open="open" @close="close" @select="selectSubmenu">
+                        <m-menu-item label="b" index="2-1" @select="selectItem">导航2-1</m-menu-item>
+                        <m-menu-item label="c" index="2-2">导航2-2</m-menu-item>
+                    </m-submenu>
+                    <m-menu-item label="c" index="3">导航3</m-menu-item>
+                </m-menu>
+            </div>
+            <div class="section">Code</div>
+            <pre class="html" v-html="click" v-highlight></pre>
+            <div class="section">API</div>
+            <div>
+                <m-table :data="apiInfo">
+                    <m-table-col prop="prop" label="Property" width="180">
+                    </m-table-col>
+                    <m-table-col prop="type" label="Type" width="380">
+                    </m-table-col>
+                    <m-table-col prop="description" label="Description" width="100">
+                    </m-table-col>
+                    <m-table-col prop="default" label="Default" width="200">
+                    </m-table-col>
+                </m-table>
+            </div>
         </div>
     </script>
     <script type="text/x-template" id="tableDemo">
@@ -463,7 +510,7 @@
                 </m-table-col>
                 <m-table-col label="操作" prop="active" width="20%">
                     <template scope="row">
-                        <m-button type="error" :on-click="onclick.bind(this, row.index)">Delete</m-button>
+                        <m-button type="error" :on-click="onclick.bind(this,row.id)">Delete</m-button>
                     </template>
                 </m-table-col>
             </m-table>
@@ -472,6 +519,16 @@
             <div class="section">Data</div>
             <pre class="javascript" v-html="data" v-highlight></pre>
             <div class="section">API</div>
+            <m-table :data="apiInfo">
+                    <m-table-col prop="prop" label="Property" width="20%">
+                    </m-table-col>
+                    <m-table-col prop="type" label="Type" width="20%">
+                    </m-table-col>
+                    <m-table-col prop="description" label="Description" width="40%">
+                    </m-table-col>
+                    <m-table-col prop="default" label="Default" width="20%">
+                    </m-table-col>
+                </m-table>
         </div>
     </script>
     <script type="text/x-template" id="selectDemo">
@@ -480,6 +537,24 @@
                 <m-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                 </m-option>
             </m-select>
+            <div style="margin-top:20px">Selected values: {{this.value}}</div>
+            <div class="section">Code</div>
+            <pre class="html lang-html" v-html="html" v-highlight></pre>
+            <div class="section">Data</div>
+            <pre class="html lang-html" v-html="data" v-highlight></pre>
+            <div class="section">API</div>
+            <div>
+                <m-table :data="apiInfo">
+                    <m-table-col prop="prop" label="Property" width="180">
+                    </m-table-col>
+                    <m-table-col prop="type" label="Type" width="380">
+                    </m-table-col>
+                    <m-table-col prop="description" label="Description" width="100">
+                    </m-table-col>
+                    <m-table-col prop="default" label="Default" width="200">
+                    </m-table-col>
+                </m-table>
+            </div>
         </div>
     </script>
     <script type="text/x-template" id="switchDemo">
@@ -586,17 +661,19 @@
         </div>
     </script>
     <script src="./lib/vue.js"></script>
+    <script src="./lib/vue-router.js"></script>
 
     <!-- use this during local development -->
-    <!-- <script src="http://localhost:9000/dist/main.js"></script>
-    <script src="http://localhost:9000/dist/style.js"></script> -->
+    <script src="http://localhost:9000/dist/main.js"></script>
+    <script src="http://localhost:9000/dist/style.js"></script>
 
     <!-- do not use this during local development, this is used for gh-pages
       -->
-    <script src="./dist/main.js"></script>
-	 <script src="./dist/style.js"></script>
+    <!-- <script src="./dist/main.js"></script>
+	 <script src="./dist/style.js"></script> -->
 
     <script>
+        Vue.use(VueRouter)
         Vue.directive('highlight', {
             inserted: function (el) {
                 hljs.highlightBlock(el);
@@ -641,7 +718,7 @@
             },
             methods: {
                 onclick: function () {
-                    console.log("clicked")
+                    console.log(this.apiInfo)
                 }
             }
         })
@@ -745,30 +822,14 @@
                 return {
                     radio: '0',
                     html: escapeHtml(html),
-                    apiInfo: [{
-                            prop: "placeholder",
-                            type: "string",
-                            description: "Placeholder of input.",
-                            default: "/"
-                        },
+                    apiInfo: [
                         {
                             prop: "label",
                             type: "string",
-                            description: "The label text displayed on top of the input.",
-                            default: "/"
-                        },
-                        {
-                            prop: "message",
-                            type: "string",
-                            description: "The message displayed below the input.",
+                            description: "value of the option",
                             default: "/"
                         }
-                    ],
-                    eventInfo: [{
-                        name: "blur",
-                        description: "On blur event.",
-                        params: "/"
-                    }]
+                    ]
                 }
             },
             methods: {
@@ -783,16 +844,24 @@
             data: function () {
                 const html =
                     `
-<h3>Checkbox</h3>
 <m-checkbox-group v-model="checkbox">
     <m-checkbox label="1"></m-checkbox>
     <m-checkbox label="2"></m-checkbox>
     <m-checkbox label="3"></m-checkbox>
 </m-checkbox-group>
+<div>Selected values: {{this.checkbox}}</div>
                     `
                 return {
                     checkbox: ["1"],
                     html: escapeHtml(html),
+                    apiInfo:[
+                        {
+                            prop: "label",
+                            type: "string",
+                            description: "value of the option",
+                            default: "/"
+                        }
+                    ],
                 }
             },
             methods: {
@@ -806,24 +875,74 @@
             data: function () {
                 const html =
                     `
-<h3>DatePicker</h3><p>
-<m-datepicker></m-datepicker>
+<m-datepicker v-model="date"></m-datepicker>
                     `
                 return {
-                    date: "2016-07-10"
+                    date: "2016-07-10",
+                    html: escapeHtml(html),
                 }
             }
         })
         const menuDemo = Vue.extend({
             template: "#menuDemo",
             data: function () {
-                const html =
+                const hover =
                     `
-<h3>DatePicker</h3><p>
-<m-menu></m-menu>
+<m-menu trigger="hover">
+    <m-submenu label="a" index="1">
+        <a slot="title">导航1</a>
+        <m-menu-item label="b" index="1-1">导航1-1</m-menu-item>
+        <m-submenu label="b" index="1-2">
+            <m-menu-item label="a" index="1-2-1">导航1-1</m-menu-item>
+            <m-menu-item label="c" index="1-2-2">导航1-2</m-menu-item>
+        </m-submenu>
+    </m-submenu>
+    <m-submenu label="b" index="2" @open="open" @close="close" @select="selectSubmenu">
+        <m-menu-item label="b" index="2-1" @select="selectItem">导航2-1</m-menu-item>
+        <m-menu-item label="c" index="2-2">导航2-2</m-menu-item>
+    </m-submenu>
+    <m-menu-item label="c" index="3">导航3</m-menu-item>
+</m-menu>
                     `
+                const click =
+                `
+<m-menu trigger="click">
+    <m-submenu label="a" index="1">
+        <a slot="title">导航1</a>
+        <m-menu-item label="b" index="1-1">导航1-1</m-menu-item>
+        <m-submenu label="b" index="1-2">
+            <m-menu-item label="a" index="1-2-1">导航1-1</m-menu-item>
+            <m-menu-item label="c" index="1-2-2">导航1-2</m-menu-item>
+        </m-submenu>
+    </m-submenu>
+    <m-submenu label="b" index="2" @open="open" @close="close" @select="selectSubmenu">
+        <m-menu-item label="b" index="2-1" @select="selectItem">导航2-1</m-menu-item>
+        <m-menu-item label="c" index="2-2">导航2-2</m-menu-item>
+    </m-submenu>
+    <m-menu-item label="c" index="3">导航3</m-menu-item>
+</m-menu>
+                `
                 return {
-                    date: "2016-07-10"
+                    date: "2016-07-10",
+                    hover:escapeHtml(hover),
+                    click:escapeHtml(click),
+                    apiInfo:[{
+                            prop: "trigger",
+                            type: "string",
+                            description: "Trigger mode; Expected values:hover/click",
+                            default: "hover"
+                        },{
+                            prop: "label",
+                            type: "string",
+                            description: "text",
+                            default: "/"
+                        },{
+                            prop: "index",
+                            type: "string",
+                            description: "key of menu item",
+                            default: "/"
+                        },
+                    ],
                 }
             },
             methods: {
@@ -845,30 +964,70 @@
             template: "#selectDemo",
             data: function () {
                 const html =
+                `
+<m-select v-model="value" v-on:onchange="change" name="first">
+    <m-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+    </m-option>
+</m-select>
                     `
-<h3>Select</h3><p>
+                const data = 
+                    `
+options:[{
+    value: 1,
+    label: '桂香园'
+},{
+    value: 2,
+    label: '东一'
+},{
+    value: 3,
+    label: '学子'
+},{
+    value: 4,
+    label: '东二'
+},{
+    value: 5,
+    label: '沁园春'
+},{
+    value: 6,
+    lable: '麦当劳'
+}]
                     `
                 return {
+                    html:escapeHtml(html),
+                    data:data,
                     options: [{
-                        value: '1',
+                        value: 1,
                         label: '桂香园'
                     }, {
-                        value: '2',
+                        value: 2,
                         label: '东一'
                     }, {
-                        value: '3',
+                        value: 3,
                         label: '学子'
                     }, {
-                        value: '4',
+                        value: 4,
                         label: '东二'
                     }, {
-                        value: '5',
+                        value: 5,
                         label: '沁园春'
                     }, {
-                        value: '6',
+                        value: 6,
                         label: '麦当劳'
                     }],
-                    value: ''
+                    value: '',
+                    apiInfo: [{
+                            prop: "label",
+                            type: "string",
+                            description: "label of select option",
+                            default: "/"
+                        },
+                        {
+                            prop: "value",
+                            type: "/",
+                            description: "value of select option",
+                            default: "/"
+                        }
+                    ],
                 }
             },
             methods: {
@@ -880,8 +1039,8 @@
         const tableDemo = Vue.extend({
             template: "#tableDemo",
             methods: {
-                onclick: (id) => {
-                    console.log(id)
+                onclick: function(id) {
+                    this.table.splice(id,1)
                 }
             },
             data: function () {
@@ -917,6 +1076,15 @@
         </template>
     </m-table-col>
 </m-table>
+
+\<script\>
+...
+methods: {
+    onclick: function(id) {
+        this.table.splice(id,1)
+    }
+},
+\</script\>
                     `
 
                 const data =
@@ -974,7 +1142,26 @@ table:[{
                         title: "关于实施校园网运营服务模式改革相关情况的说明",
                         author: "Cruyun",
                         likes: 1001
-                    }]
+                    }],
+                    apiInfo: [{
+                            prop: "prop",
+                            type: "string",
+                            description: "Column data. Should match the key of table data object",
+                            default: "/"
+                        },
+                        {
+                            prop: "label",
+                            type: "string",
+                            description: "Thead text",
+                            default: "/"
+                        },
+                        {
+                            prop: "width",
+                            type: "string",
+                            description: "Column width",
+                            default: "/"
+                        }
+                    ],
                 }
             }
         })
@@ -1148,5 +1335,4 @@ table:[{
         })
     </script>
 </body>
-
 </html>
