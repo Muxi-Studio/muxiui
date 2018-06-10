@@ -533,15 +533,17 @@
     </script>
     <script type="text/x-template" id="selectDemo">
         <div>
-            <m-select v-model="value" v-on:onchange="change" name="first">
+            <m-select v-model="value" v-on:onchange="change" name="first" :defaultvalue="defaultValue">
                 <m-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                 </m-option>
             </m-select>
             <div style="margin-top:20px">Selected values: {{this.value}}</div>
             <div class="section">Code</div>
-            <pre class="html lang-html" v-html="html" v-highlight></pre>
+            <pre class="html lang-html" v-html="html" v-highlight></pre>           
             <div class="section">Data</div>
             <pre class="html lang-html" v-html="data" v-highlight></pre>
+            <div class="section">DefaultValue</div>
+            <pre class="html lang-html" v-html="defaultplacer" v-highlight></pre>
             <div class="section">API</div>
             <div>
                 <m-table :data="apiInfo">
@@ -965,7 +967,7 @@
             data: function () {
                 const html =
                 `
-<m-select v-model="value" v-on:onchange="change" name="first">
+<m-select v-model="value" v-on:onchange="change" name="first" :defaultvalue="defaultValue">
     <m-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
     </m-option>
 </m-select>
@@ -992,9 +994,20 @@ options:[{
     lable: '麦当劳'
 }]
                     `
+            const defaultplacer = 
+`
+computed:{
+    defaultValue: function(){
+        return this.options.find((e)=>{
+            return e.value == this.value
+        }).label
+    }
+},
+`
                 return {
                     html:escapeHtml(html),
                     data:data,
+                    defaultplacer:defaultplacer,
                     options: [{
                         value: 1,
                         label: '桂香园'
@@ -1014,8 +1027,13 @@ options:[{
                         value: 6,
                         label: '麦当劳'
                     }],
-                    value: '',
+                    value: 6,
                     apiInfo: [{
+                            prop: "defaultvalue",
+                            type: "string",
+                            description: "default value",
+                            default: "/"
+                        },{
                             prop: "label",
                             type: "string",
                             description: "label of select option",
@@ -1028,6 +1046,13 @@ options:[{
                             default: "/"
                         }
                     ],
+                }
+            },
+            computed:{
+                defaultValue: function(){
+                    return this.options.find((e)=>{
+                        return e.value == this.value
+                    }).label
                 }
             },
             methods: {
@@ -1129,7 +1154,7 @@ table:[{
                         kind: "图集",
                         title: "图集·军训，再见",
                         author: "Rose",
-                        likes: 18
+                        likes: 0
                     }, {
                         id: 3,
                         kind: "水墨",
