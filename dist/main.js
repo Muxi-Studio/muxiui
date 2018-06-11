@@ -6095,7 +6095,8 @@ exports.default = {
         value: {
             type: [String, Number, Boolean]
         },
-        name: String
+        name: String,
+        defaultvalue: String
     },
     data: function data() {
         return {
